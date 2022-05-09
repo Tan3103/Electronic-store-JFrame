@@ -9,17 +9,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddNewKeyboard extends Container {
-    public AddNewKeyboard(){
+public class AddPhotoCamera extends Container {
+    public AddPhotoCamera(){
         setSize(500, 500);
         setLayout(null);
 
-        String[] typeKeyboard = {"Grand_piano", "Piano", "Sintezator"};
-
-        JLabel Label = new JLabel("Keyboard instrument");
-        Label.setBounds(175, 40, 360, 25);
-        Label.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        add(Label);
+        String[] typeKeyboard = {"Canon", "Sony", "Nikon", "FUJIFILM"};
 
         JLabel typeLabel = new JLabel("Type:");
         typeLabel.setBounds(75, 75, 125, 25);
@@ -37,13 +32,13 @@ public class AddNewKeyboard extends Container {
         nameField.setBounds(225, 110, 200, 25);
         add(nameField);
 
-        JLabel numberKeysLabel = new JLabel("Number of keys:");
-        numberKeysLabel.setBounds(75, 145, 125, 25);
-        add(numberKeysLabel);
+        JLabel typeAutofocusLabel = new JLabel("Type of autofocus:");
+        typeAutofocusLabel.setBounds(75, 145, 125, 25);
+        add(typeAutofocusLabel);
 
-        JTextField numberKeysField = new JTextField();
-        numberKeysField.setBounds(225, 145, 200, 25);
-        add(numberKeysField);
+        JTextField typeAutofocusField = new JTextField();
+        typeAutofocusField.setBounds(225, 145, 200, 25);
+        add(typeAutofocusField);
 
         JLabel costLabel = new JLabel("Product price:");
         costLabel.setBounds(75, 215, 125, 25);
@@ -61,14 +56,6 @@ public class AddNewKeyboard extends Container {
         countField.setBounds(225, 250, 200, 25);
         add(countField);
 
-        JLabel discountLabel = new JLabel("Discount:");
-        discountLabel.setBounds(75, 285, 125, 25);
-        add(discountLabel);
-
-        JTextField discountField = new JTextField();
-        discountField.setBounds(225, 285, 200, 25);
-        add(discountField);
-
         JButton addButton = new JButton("Add product");
         addButton.setBounds(75, 320, 170, 30);
         add(addButton);
@@ -80,7 +67,7 @@ public class AddNewKeyboard extends Container {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.addNewKeyboard.setVisible(false);
+                MainFrame.addPhotoCamera.setVisible(false);
                 MainFrame.addProduct.setVisible(true);
             }
         });
@@ -91,9 +78,9 @@ public class AddNewKeyboard extends Container {
                 try{
                     Laptop newKeyboard = new Laptop(null, (String)typeField.getSelectedItem(), nameField.getText(),
                             Integer.parseInt(costField.getText()), Integer.parseInt(countField.getText()),
-                            Integer.parseInt(discountField.getText()), Integer.parseInt(numberKeysField.getText()));
+                            typeAutofocusField.getText());
 
-                    PackageData packageData = new PackageData("ADDKeyboard", newKeyboard);
+                    PackageData packageData = new PackageData("ADD P", newKeyboard);
                     Main.connect(packageData);
                 }catch (Exception a){
                     a.printStackTrace();
@@ -102,8 +89,7 @@ public class AddNewKeyboard extends Container {
                 nameField.setText(null);
                 costField.setText(null);
                 countField.setText(null);
-                discountField.setText(null);
-                numberKeysField.setText(null);
+                typeAutofocusField.setText(null);
             }
         });
     }

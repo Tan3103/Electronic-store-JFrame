@@ -31,13 +31,13 @@ public class AddLaptop extends Container {
         nameField.setBounds(225, 110, 200, 25);
         add(nameField);
 
-        JLabel diameterLabel = new JLabel("Diameter of product:");
-        diameterLabel.setBounds(75, 145, 125, 25);
-        add(diameterLabel);
+        JLabel videoCardLabel = new JLabel("Type video card:");
+        videoCardLabel.setBounds(75, 145, 125, 25);
+        add(videoCardLabel);
 
-        JTextField diameterField = new JTextField();
-        diameterField.setBounds(225, 145, 200, 25);
-        add(diameterField);
+        JTextField videoCardField = new JTextField();
+        videoCardField.setBounds(225, 145, 200, 25);
+        add(videoCardField);
 
         JLabel costLabel = new JLabel("Product price:");
         costLabel.setBounds(75, 215, 125, 25);
@@ -54,14 +54,6 @@ public class AddLaptop extends Container {
         JTextField countField = new JTextField();
         countField.setBounds(225, 250, 200, 25);
         add(countField);
-
-        JLabel discountLabel = new JLabel("Discount:");
-        discountLabel.setBounds(75, 285, 125, 25);
-        add(discountLabel);
-
-        JTextField discountField = new JTextField();
-        discountField.setBounds(225, 285, 200, 25);
-        add(discountField);
 
         JButton addButton = new JButton("Add product");
         addButton.setBounds(75, 320, 170, 30);
@@ -85,9 +77,9 @@ public class AddLaptop extends Container {
                 try{
                     PhotoCamera newPercussion = new PhotoCamera(null, (String)typeField.getSelectedItem(), nameField.getText(),
                             Integer.parseInt(costField.getText()), Integer.parseInt(countField.getText()),
-                            Integer.parseInt(discountField.getText()), diameterField.getText());
+                            videoCardField.getText());
 
-                    PackageData packageData = new PackageData("ADDPercussion", newPercussion);
+                    PackageData packageData = new PackageData("ADD L", newPercussion);
                     Main.connect(packageData);
                 }catch (Exception a){
                     a.printStackTrace();
@@ -96,8 +88,7 @@ public class AddLaptop extends Container {
                 nameField.setText(null);
                 costField.setText(null);
                 countField.setText(null);
-                discountField.setText(null);
-                diameterField.setText(null);
+                videoCardField.setText(null);
             }
         });
     }

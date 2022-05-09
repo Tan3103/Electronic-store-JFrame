@@ -10,21 +10,21 @@ public class AdminMenu extends Container {
         setSize(500, 500);
         setLayout(null);
 
-        JButton deleteUserButton = new JButton("Show all user and Delete a user");
-        deleteUserButton.setBounds(100, 100, 300, 40);
-        add(deleteUserButton);
-
         JButton addANewProductButton = new JButton("Add a new product");
-        addANewProductButton.setBounds(100, 150, 300, 40);
+        addANewProductButton.setBounds(100, 100, 300, 40);
         add(addANewProductButton);
 
         JButton deleteProductButton = new JButton("Delete a product");
-        deleteProductButton.setBounds(100, 200, 300, 40);
+        deleteProductButton.setBounds(100, 150, 300, 40);
         add(deleteProductButton);
 
         JButton backButton = new JButton("Back to menu");
         backButton.setBounds(100, 250, 300, 40);
         add(backButton);
+
+        JButton deleteUserButton = new JButton("Delete a user");
+        deleteUserButton.setBounds(100, 200, 300, 40);
+        add(deleteUserButton);
 
         deleteUserButton.addActionListener(new ActionListener() {
             @Override

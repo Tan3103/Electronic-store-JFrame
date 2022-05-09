@@ -98,7 +98,7 @@ public class AddProduct extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main.frame.addProduct.setVisible(false);
-                Main.frame.addNewKeyboard.setVisible(true);
+                Main.frame.addPhotoCamera.setVisible(true);
             }
         });
 
