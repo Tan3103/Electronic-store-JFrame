@@ -85,9 +85,7 @@ public class AddSmartphone extends Container {
                     nameField.setText(null);
                     costField.setText(null);
                     countField.setText(null);
-                    discountField.setText(null);
-                    numberStringField.setText(null);
-                    fretsField.setText(null);
+                    numberSIMField.setText(null);
                 } catch (Exception a) {
                     a.printStackTrace();
                 }
