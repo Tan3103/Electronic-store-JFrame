@@ -13,17 +13,17 @@ public class DeleteProduct extends Container {
         setSize(500, 500);
         setLayout(null);
 
-        JButton smartphoneButton = new JButton("List of smartphone");
-        smartphoneButton.setBounds(70, 40, 360, 25);
-        add(smartphoneButton);
+        JButton guitarsButton = new JButton("List of Guitars");
+        guitarsButton.setBounds(70, 40, 360, 25);
+        add(guitarsButton);
 
-        JButton laptopButton = new JButton("List of laptop");
-        laptopButton.setBounds(70, 70, 360, 25);
-        add(laptopButton);
+        JButton keyboardButton = new JButton("List of Keyboard instruments");
+        keyboardButton.setBounds(70, 70, 360, 25);
+        add(keyboardButton);
 
-        JButton photoCameraButton = new JButton("List of photo camera");
-        photoCameraButton.setBounds(70, 100, 360, 25);
-        add(photoCameraButton);
+        JButton percussionButton = new JButton("List of Percussion instruments");
+        percussionButton.setBounds(70, 100, 360, 25);
+        add(percussionButton);
 
         textArea = new JTextArea();
         textArea.setBounds(70, 130, 360, 200);
@@ -37,50 +37,94 @@ public class DeleteProduct extends Container {
         numberField.setBounds(360, 340, 70, 25);
         add(numberField);
 
-        JButton deleteButton = new JButton("Delete");
-        deleteButton.setBounds(70, 375, 175, 25);
-        add(deleteButton);
+        JButton deleteGuitarButton = new JButton("Delete Guitar");
+        deleteGuitarButton.setBounds(70, 375, 175, 25);
+        add(deleteGuitarButton);
+        deleteGuitarButton.setVisible(false);
+
+        JButton deleteKeyboardButton = new JButton("Delete Keyboard");
+        deleteKeyboardButton.setBounds(70, 375, 175, 25);
+        add(deleteKeyboardButton);
+        deleteKeyboardButton.setVisible(false);
+
+        JButton deletePercussionButton = new JButton("Delete Percussion");
+        deletePercussionButton.setBounds(70, 375, 175, 25);
+        add(deletePercussionButton);
+        deletePercussionButton.setVisible(false);
 
         JButton backButton = new JButton("Back to menu");
         backButton.setBounds(255, 375, 175, 25);
         add(backButton);
 
-        smartphoneButton.addActionListener(new ActionListener() {
+        guitarsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textArea.setText(null);
+                deletePercussionButton.setVisible(false);
+                deleteKeyboardButton.setVisible(false);
+                deleteGuitarButton.setVisible(true);
 
-                PackageData pd = new PackageData("LIST S");
+                textArea.setText(null);
+                PackageData pd = new PackageData("LIST Guitar");
                 Main.connect(pd);
             }
         });
 
-        laptopButton.addActionListener(new ActionListener() {
+        keyboardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textArea.setText(null);
+                deletePercussionButton.setVisible(false);
+                deleteKeyboardButton.setVisible(true);
+                deleteGuitarButton.setVisible(false);
 
-                PackageData pd = new PackageData("LIST L");
+                textArea.setText(null);
+                PackageData pd = new PackageData("LIST Keyboard");
                 Main.connect(pd);
             }
         });
 
-        photoCameraButton.addActionListener(new ActionListener() {
+        percussionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textArea.setText(null);
+                deletePercussionButton.setVisible(true);
+                deleteKeyboardButton.setVisible(false);
+                deleteGuitarButton.setVisible(false);
 
-                PackageData pd = new PackageData("LIST P");
+                textArea.setText(null);
+                PackageData pd = new PackageData("LIST Percussion");
                 Main.connect(pd);
             }
         });
 
-        deleteButton.addActionListener(new ActionListener() {
+        deleteGuitarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PackageData pd = new PackageData("Delete Product", Integer.parseInt((numberField.getText())));
-                Main.connect(pd);
+                DBManager manager = new DBManager();
 
+                manager.deleteGuitar(Integer.parseInt(numberField.getText()));
+                numberField.setText(null);
+                textArea.setText(null);
+
+                deleteGuitarButton.setVisible(false);
+            }
+        });
+
+        deleteKeyboardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DBManager manager = new DBManager();
+
+                manager.deleteKeyboard(Integer.parseInt(numberField.getText()));
+                numberField.setText(null);
+                textArea.setText(null);
+            }
+        });
+
+        deletePercussionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DBManager manager = new DBManager();
+
+                manager.deletePercussion(Integer.parseInt(numberField.getText()));
                 numberField.setText(null);
                 textArea.setText(null);
             }

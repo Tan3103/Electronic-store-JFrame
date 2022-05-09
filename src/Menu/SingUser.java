@@ -1,5 +1,5 @@
 package Menu;
-import Checker.Checker;
+
 import DataBase.PackageData;
 import Main.Main;
 import com.company.Customer;
@@ -47,7 +47,7 @@ public class SingUser extends Container {
 
         JTextField passwordField = new JTextField();
         passwordField.setBounds(200, 200, 200, 30);
-        Checker checker = new Checker();
+
         add(passwordField);
 
         JButton singButton = new JButton("Sing up");
@@ -62,16 +62,14 @@ public class SingUser extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    if(checker.checkerPassword(passwordField.getText())){
+
                         Customer new_customer = new Customer(null, loginField.getText(), passwordField.getText(), nameField.getText(), surnameField.getText());
 
                         PackageData packageData = new PackageData("ADD", new_customer);
                         Main.connect(packageData);
 
                         label.setText("OK");
-                    }else{
-                        label.setText("Error");
-                    }
+
                 }catch (Exception a){
                     a.printStackTrace();
                 }
