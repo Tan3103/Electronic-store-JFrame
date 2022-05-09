@@ -9,31 +9,29 @@ public class PackageData implements Serializable {
     private String find;
 
     private Customer customer;
-    private Laptop keyboardInstrument;
-    private PhotoCamera percussionInstrument;
+    private Laptop laptop;
+    private PhotoCamera photoCamera;
     private Smartphone smartphone;
-    private Product product;
+
 
     private ArrayList<Customer> customers;
     private ArrayList<Smartphone> smartphones;
-    private ArrayList<Laptop> keyboardInstruments;
-    private ArrayList<PhotoCamera> percussionInstruments;
-    private ArrayList<Product> products;
+    private ArrayList<Laptop> laptops;
+    private ArrayList<PhotoCamera> photoCameras;
+
 
     public PackageData() {
     }
 
-    public PackageData(ArrayList<Product> products) {
-        this.products = products;
-    }
 
-    public PackageData(Product product) {
-        this.product = product;
-    }
-
-    public PackageData(String operationType, Product product) {
+    public PackageData(String operationType, Smartphone smartphone) {
         this.operationType = operationType;
-        this.product = product;
+        this.smartphone = smartphone;
+    }
+
+    public PackageData(String operationType, PhotoCamera photoCamera) {
+        this.operationType = operationType;
+        this.photoCamera = photoCamera;
     }
 
     public PackageData(String operationType, String find) {
@@ -46,24 +44,14 @@ public class PackageData implements Serializable {
         this.id = id;
     }
 
+    public PackageData(String operationType, Laptop laptop) {
+        this.operationType = operationType;
+        this.laptop = laptop;
+    }
+
     public PackageData(String operationType, Customer customer) {
         this.operationType = operationType;
         this.customer = customer;
-    }
-
-    public PackageData(String operationType, Smartphone smartphone) {
-        this.operationType = operationType;
-        this.smartphone = smartphone;
-    }
-
-    public PackageData(String operationType, Laptop keyboardInstrument) {
-        this.operationType = operationType;
-        this.keyboardInstrument = keyboardInstrument;
-    }
-
-    public PackageData(String operationType, PhotoCamera percussionInstrument) {
-        this.operationType = operationType;
-        this.percussionInstrument = percussionInstrument;
     }
 
     public PackageData(String operationType) {
@@ -74,103 +62,93 @@ public class PackageData implements Serializable {
         return operationType;
     }
 
-    public void setOperationType(String operationType) {
-        this.operationType = operationType;
-    }
-
-    public Customer getVisitor() {
-        return customer;
-    }
-
-    public void setVisitor(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Laptop getKeyboardInstrument() {
-        return keyboardInstrument;
-    }
-
-    public void setKeyboardInstrument(Laptop keyboardInstrument) {
-        this.keyboardInstrument = keyboardInstrument;
-    }
-
-    public PhotoCamera getPercussionInstrument() {
-        return percussionInstrument;
-    }
-
-    public void setPercussionInstrument(PhotoCamera percussionInstrument) {
-        this.percussionInstrument = percussionInstrument;
-    }
-
-    public Smartphone getGuitar() {
-        return smartphone;
-    }
-
-    public void setGuitar(Smartphone smartphone) {
-        this.smartphone = smartphone;
-    }
-
-    public ArrayList<Customer> getVisitors() {
-        return customers;
-    }
-
-    public void setVisitors(ArrayList<Customer> customers) {
-        this.customers = customers;
-    }
-
-    public ArrayList<Smartphone> getGuitars() {
-        return smartphones;
-    }
-
-    public void setGuitars(ArrayList<Smartphone> smartphones) {
-        this.smartphones = smartphones;
-    }
-
-    public ArrayList<Laptop> getKeyboardInstruments() {
-        return keyboardInstruments;
-    }
-
-    public void setKeyboardInstruments(ArrayList<Laptop> keyboardInstruments) {
-        this.keyboardInstruments = keyboardInstruments;
-    }
-
-    public ArrayList<PhotoCamera> getPercussionInstruments() {
-        return percussionInstruments;
-    }
-
-    public void setPercussionInstruments(ArrayList<PhotoCamera> percussionInstruments) {
-        this.percussionInstruments = percussionInstruments;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFind() {
         return find;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+
+    public void setOperationType(String operationType) {
+        this.operationType = operationType;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setFind(String find) {
         this.find = find;
     }
 
-    public Product getProduct() {
-        return product;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+
+    public void setSmartphone(Smartphone smartphone) {
+        this.smartphone = smartphone;
     }
 
-    public ArrayList<Product> getProducts() {
-        return products;
+    public void setCustomers(ArrayList<Customer> customers) {
+        this.customers = customers;
     }
 
-    public void setProducts(ArrayList<Product> products) {
-        this.products = products;
+    public void setSmartphones(ArrayList<Smartphone> smartphones) {
+        this.smartphones = smartphones;
+    }
+
+
+
+    public Smartphone getSmartphone() {
+        return smartphone;
+    }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+
+    public ArrayList<Smartphone> getSmartphones() {
+        return smartphones;
+    }
+
+
+
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
+
+    public PhotoCamera getPhotoCamera() {
+        return photoCamera;
+    }
+
+    public void setPhotoCamera(PhotoCamera photoCamera) {
+        this.photoCamera = photoCamera;
+    }
+
+    public ArrayList<Laptop> getLaptops() {
+        return laptops;
+    }
+
+    public void setLaptops(ArrayList<Laptop> laptops) {
+        this.laptops = laptops;
+    }
+
+    public ArrayList<PhotoCamera> getPhotoCameras() {
+        return photoCameras;
+    }
+
+    public void setPhotoCameras(ArrayList<PhotoCamera> photoCameras) {
+        this.photoCameras = photoCameras;
     }
 }

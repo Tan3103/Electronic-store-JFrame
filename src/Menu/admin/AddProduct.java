@@ -98,7 +98,7 @@ public class AddProduct extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main.frame.addProduct.setVisible(false);
-                Main.frame.addPhotoCamera.setVisible(true);
+                Main.frame.addLaptop.setVisible(true);
             }
         });
 
@@ -106,7 +106,7 @@ public class AddProduct extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main.frame.addProduct.setVisible(false);
-                Main.frame.addLaptop.setVisible(true);
+                Main.frame.addPhotoCamera.setVisible(true);
             }
         });
     }

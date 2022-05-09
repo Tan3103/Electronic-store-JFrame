@@ -23,43 +23,43 @@ public class ServerThread extends Thread  {
 
             while((packageData = ((PackageData)inputStream.readObject())) != null){
                 if(packageData.getOperationType().equals("ADD")){
-                    Customer customer = packageData.getVisitor();
+                    Customer customer = packageData.getCustomer();
                     manager.addCustomer(customer);
                 }
                 else if(packageData.getOperationType().equals("ADD S")){
-                    Smartphone smartphone = packageData.getGuitar();
+                    Smartphone smartphone = packageData.getSmartphone();
                     manager.addSmartphone(smartphone);
                 }
                 else if(packageData.getOperationType().equals("ADD L")){
-                    Laptop laptop = packageData.getKeyboardInstrument();
+                    Laptop laptop = packageData.getLaptop();
                     manager.addLaptop(laptop);
                 }
                 else if(packageData.getOperationType().equals("ADD P")){
-                    PhotoCamera photoCamera = packageData.getPercussionInstrument();
+                    PhotoCamera photoCamera = packageData.getPhotoCamera();
                     manager.addPhotoCamera(photoCamera);
                 }
                 else if(packageData.getOperationType().equals("LIST")){
                     ArrayList<Customer> arrayCustomer = manager.getAllVisitor();
                     PackageData toVisitor = new PackageData();
-                    toVisitor.setVisitors(arrayCustomer);
+                    toVisitor.setCustomers(arrayCustomer);
                     outputStream.writeObject(toVisitor);
                 }
                 else if(packageData.getOperationType().equals("LIST S")){
                     ArrayList<Smartphone> arraySmartphone = manager.getAllSmartphone();
                     PackageData toGuitar = new PackageData();
-                    toGuitar.setGuitars(arraySmartphone);
+                    toGuitar.setSmartphones(arraySmartphone);
                     outputStream.writeObject(toGuitar);
                 }
                 else if(packageData.getOperationType().equals("LIST L")){
                     ArrayList<Laptop> arrayKeyboard = manager.getAllLaptop();
                     PackageData toKeyboard = new PackageData();
-                    toKeyboard.setKeyboardInstruments(arrayKeyboard);
+                    toKeyboard.setLaptops(arrayKeyboard);
                     outputStream.writeObject(toKeyboard);
                 }
                 else if(packageData.getOperationType().equals("LIST P")){
                     ArrayList<PhotoCamera> arrayPercussion = manager.getAllPhotoCamera();
                     PackageData toPercussion = new PackageData();
-                    toPercussion.setPercussionInstruments(arrayPercussion);
+                    toPercussion.setPhotoCameras(arrayPercussion);
                     outputStream.writeObject(toPercussion);
                 }
                 else if(packageData.getOperationType().equals("Delete Customer")){

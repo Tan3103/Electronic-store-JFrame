@@ -28,7 +28,7 @@ public class Main {
             else if(pd.getOperationType().equals("LIST")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
-                ArrayList<Customer> arrayListFromServer = infoFromServer.getVisitors();
+                ArrayList<Customer> arrayListFromServer = infoFromServer.getCustomers();
                 String s = "";
 
                 for(int i=0; i< arrayListFromServer.size(); i++){
@@ -39,7 +39,7 @@ public class Main {
             else if(pd.getOperationType().equals("LIST S")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
-                ArrayList<Smartphone> arrayListFromServer = infoFromServer.getGuitars();
+                ArrayList<Smartphone> arrayListFromServer = infoFromServer.getSmartphones();
                 String s = "";
 
                 for(int i=0; i< arrayListFromServer.size(); i++){
@@ -52,7 +52,7 @@ public class Main {
             else if(pd.getOperationType().equals("LIST L")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
-                ArrayList<Laptop> arrayListFromServer = infoFromServer.getKeyboardInstruments();
+                ArrayList<Laptop> arrayListFromServer = infoFromServer.getLaptops();
                 String s1 = "";
 
                 for(int i=0; i< arrayListFromServer.size(); i++){
@@ -65,7 +65,7 @@ public class Main {
             else if(pd.getOperationType().equals("LIST P")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
-                ArrayList<PhotoCamera> arrayListFromServer = infoFromServer.getPercussionInstruments();
+                ArrayList<PhotoCamera> arrayListFromServer = infoFromServer.getPhotoCameras();
                 String s = "";
 
                 for(int i=0; i< arrayListFromServer.size(); i++){

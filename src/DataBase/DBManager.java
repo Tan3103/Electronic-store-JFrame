@@ -19,14 +19,15 @@ public class DBManager {
     public void addSmartphone(Smartphone smartphone) {
         try {
             PreparedStatement statement = connection.prepareStatement("" +
-                    "INSERT INTO smartphone (id, type, name, price, count, numberSIM) " +
-                    "VALUES (NULL, ?, ?, ?, ?, ?)");
+                    "INSERT INTO product(id, type, name, cost, count, numberSIM, typeID) " +
+                    "VALUES (NULL, ?, ?, ?, ?, ?, ?)");
 
             statement.setString(1, smartphone.getType());
             statement.setString(2, smartphone.getName());
             statement.setInt(3, smartphone.getCost());
             statement.setInt(4, smartphone.getCount());
             statement.setInt(5, smartphone.getNumberSIM());
+            statement.setInt(6, 1);
 
             statement.executeUpdate();
             statement.close();
@@ -38,14 +39,15 @@ public class DBManager {
     public void addLaptop(Laptop laptop) {
         try {
             PreparedStatement statement = connection.prepareStatement("" +
-                    "INSERT INTO laptop (id, type, name, price, count, videoCard) " +
-                    "VALUES (NULL, ?, ?, ?, ?, ?)");
+                    "INSERT INTO product (id, type, name, cost, count, videoCard, typeID) " +
+                    "VALUES (NULL, ?, ?, ?, ?, ?, ?)");
 
             statement.setString(1, laptop.getType());
             statement.setString(2, laptop.getName());
             statement.setInt(3, laptop.getCost());
             statement.setInt(4, laptop.getCount());
             statement.setString(5, laptop.getVideoCard());
+            statement.setInt(6, 2);
 
             statement.executeUpdate();
             statement.close();
@@ -57,15 +59,15 @@ public class DBManager {
     public void addPhotoCamera(PhotoCamera photoCamera) {
         try {
             PreparedStatement statement = connection.prepareStatement("" +
-                    "INSERT INTO photoCamera (id, type, name, price, count, typeAutofocus) " +
-                    "VALUES (NULL, ?, ?, ?, ?, ?)");
+                    "INSERT INTO product (id, type, name, cost, count, typeAutofocus, typeID) " +
+                    "VALUES (NULL, ?, ?, ?, ?, ?, ?)");
 
             statement.setString(1, photoCamera.getType());
             statement.setString(2, photoCamera.getName());
             statement.setInt(3, photoCamera.getCost());
             statement.setInt(4, photoCamera.getCount());
             statement.setString(5, photoCamera.getTypeAutofocus());
-
+            statement.setInt(6, 3);
             statement.executeUpdate();
             statement.close();
         } catch (Exception e) {
@@ -115,7 +117,7 @@ public class DBManager {
     public ArrayList<Smartphone> getAllSmartphone(){
         ArrayList<Smartphone> smartphoneList = new ArrayList<>();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM smartphone");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE typeID= 1");
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()){
@@ -138,7 +140,7 @@ public class DBManager {
     public ArrayList<Laptop> getAllLaptop(){
         ArrayList<Laptop> laptopList = new ArrayList<>();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM laptop");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE typeID= 2");
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()){
@@ -161,7 +163,7 @@ public class DBManager {
     public ArrayList<PhotoCamera> getAllPhotoCamera(){
         ArrayList<PhotoCamera> percussionList = new ArrayList<>();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM photocamera");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE typeID= 3");
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()){
