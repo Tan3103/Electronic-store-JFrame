@@ -63,7 +63,7 @@ public class LoginUser extends Container {
 
                     DBManager manager = new DBManager();
                     manager.connect();
-                    customer = manager.getVisitor(loginField.getText());
+
                 } catch(Exception a){
                     a.printStackTrace();
                 }

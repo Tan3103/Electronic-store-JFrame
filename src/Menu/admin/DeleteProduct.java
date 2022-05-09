@@ -100,7 +100,7 @@ public class DeleteProduct extends Container {
             public void actionPerformed(ActionEvent e) {
                 DBManager manager = new DBManager();
 
-                manager.deleteGuitar(Integer.parseInt(numberField.getText()));
+
                 numberField.setText(null);
                 textArea.setText(null);
 
@@ -113,7 +113,7 @@ public class DeleteProduct extends Container {
             public void actionPerformed(ActionEvent e) {
                 DBManager manager = new DBManager();
 
-                manager.deleteKeyboard(Integer.parseInt(numberField.getText()));
+
                 numberField.setText(null);
                 textArea.setText(null);
             }
@@ -124,7 +124,7 @@ public class DeleteProduct extends Container {
             public void actionPerformed(ActionEvent e) {
                 DBManager manager = new DBManager();
 
-                manager.deletePercussion(Integer.parseInt(numberField.getText()));
+
                 numberField.setText(null);
                 textArea.setText(null);
             }

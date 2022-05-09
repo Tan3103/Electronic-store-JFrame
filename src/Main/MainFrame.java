@@ -12,14 +12,13 @@ public class MainFrame extends JFrame {
     public static AdminMenu adminMenu;
     public static CatalogMenu catalogMenu;
     public static FindMenu findMenu;
-    public static DiscountMenu discountMenu;
+
     public static DeleteUser deleteUser;
     public static AddProduct addProduct;
     public static DeleteProduct deleteProduct;
     public static AddSmartphone addSmartphone;
     public static AddPhotoCamera addPhotoCamera;
     public static AddLaptop addLaptop;
-    public static PurchasedGoods purchasedGoods;
 
     public MainFrame(){
         setSize(500, 500);
@@ -61,10 +60,6 @@ public class MainFrame extends JFrame {
         findMenu.setVisible(false);
         add(findMenu);
 
-        discountMenu = new DiscountMenu();
-        discountMenu.setLocation(0, 0);
-        discountMenu.setVisible(false);
-        add(discountMenu);
 
         deleteUser = new DeleteUser();
         deleteUser.setLocation(0, 0);
@@ -96,9 +91,6 @@ public class MainFrame extends JFrame {
         addLaptop.setVisible(false);
         add(addLaptop);
 
-        purchasedGoods = new PurchasedGoods();
-        purchasedGoods.setLocation(0,0);
-        purchasedGoods.setVisible(false);
-        add(purchasedGoods);
+
     }
 }

@@ -10,7 +10,7 @@ public class ServerThread extends Thread  {
     public ServerThread(Socket socket){
         this.socket = socket;
     }
-
+/*
     public void run(){
         try{
             DBManager manager = new DBManager();
@@ -140,4 +140,6 @@ public class ServerThread extends Thread  {
             e.printStackTrace();
         }
     }
+
+ */
 }

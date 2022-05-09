@@ -14,8 +14,8 @@ public class DBManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
+    }}
+/*
     public void addGuitar(Smartphone smartphone) {
             try{
             PreparedStatement statement = connection.prepareStatement("" +
@@ -37,6 +37,8 @@ public class DBManager {
             e.printStackTrace();
         }
     }
+
+
 
     public void addKeyboard(Laptop laptop) {
         try{
@@ -81,7 +83,7 @@ public class DBManager {
     public void addVisitor(Customer customer) {
         try {
             PreparedStatement statement = connection.prepareStatement("" +
-                    "INSERT INTO visitor (id, login, password, name, surname) " +
+                    "INSERT INTO customer (id, login, password, name, surname) " +
                     "VALUES (NULL, ?, ?, ?, ?)");
             statement.setString(1, customer.getLogin());
             statement.setString(2, customer.getPassword());
@@ -533,5 +535,4 @@ public class DBManager {
         }
         return customer;
     }
-
-}
+ */

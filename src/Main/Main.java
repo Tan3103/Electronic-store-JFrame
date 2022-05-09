@@ -123,6 +123,7 @@ public class Main {
 
                 FindMenu.textArea.append(guitar);
             }
+            /*
             else if(pd.getOperationType().equals("LIST Discount")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
@@ -134,6 +135,8 @@ public class Main {
                 }
                 DiscountMenu.textArea.append(s);
             }
+
+             */
             inputStream.close();
             outputStream.close();
             socket.close();
