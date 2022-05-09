@@ -10,11 +10,11 @@ public class DBManager {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/tannurdb?useUnicode=true&serverTimezone=UTC", "root", "");
+                    "jdbc:mysql://localhost:3306/bd_olzhas?useUnicode=true&serverTimezone=UTC", "root", "");
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }}
+    }
 /*
     public void addGuitar(Smartphone smartphone) {
             try{
@@ -79,8 +79,8 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-
-    public void addVisitor(Customer customer) {
+*/
+    public void addCustomer(Customer customer) {
         try {
             PreparedStatement statement = connection.prepareStatement("" +
                     "INSERT INTO customer (id, login, password, name, surname) " +
@@ -96,7 +96,7 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-
+/*
     public ArrayList<Customer> getAllVisitor(){
         ArrayList<Customer> customerList = new ArrayList<>();
         try{
@@ -535,4 +535,7 @@ public class DBManager {
         }
         return customer;
     }
+
  */
+}
+

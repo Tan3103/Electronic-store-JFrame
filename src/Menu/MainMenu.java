@@ -1,34 +1,86 @@
 package Menu;
+import DataBase.DBManager;
 import Main.MainFrame;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import static DataBase.DBManager.connection;
 
 public class MainMenu extends Container {
     public MainMenu(){
         setSize(500, 500);
         setLayout(null);
 
-        JButton loginButton = new JButton("Login");
-        loginButton.setBounds(100, 150, 300, 40);
-        add(loginButton);
+        JLabel loginLabel = new JLabel("LOGIN:");
+        loginLabel.setBounds(100, 100, 100, 30);
+        add(loginLabel);
+
+        JTextField loginField = new JTextField();
+        loginField.setBounds(200, 100, 200, 30);
+        add(loginField);
+
+        JLabel passwordLabel = new JLabel("PASSWORD:");
+        passwordLabel.setBounds(100, 150, 100, 30);
+        add(passwordLabel);
+
+        JTextField passwordField = new JTextField();
+        passwordField.setBounds(200, 150, 200, 30);
+        add(passwordField);
+
+        JButton logInButton = new JButton("Log in");
+        logInButton.setBounds(100, 200, 140, 40);
+        add(logInButton);
 
         JButton singButton = new JButton("Sign up");
-        singButton.setBounds(100, 200, 300, 40);
+        singButton.setBounds(260, 200, 140, 40);
         add(singButton);
 
         JButton exitButton = new JButton("Exit");
         exitButton.setBounds(100, 250, 300, 40);
         add(exitButton);
 
-        loginButton.addActionListener(new ActionListener() {
+
+
+        logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.loginUser.setVisible(true);
-                MainFrame.menu.setVisible(false);
+                if (loginField.getText().equals("admin") && passwordField.getText().equals("password")) {
+                    MainFrame.loginUser.setVisible(false);
+                    MainFrame.adminMenu.setVisible(true);
+                }
+
+                try {
+                    DBManager result = new DBManager();
+                    result.connect();
+                    Statement stmt = connection.createStatement();
+                    String sql = "select * from  visitor where login='"  + loginField.getText() + "' and password='" + passwordField.getText() +  "' ";
+                    ResultSet rs = stmt.executeQuery(sql);
+                    if(rs.next()){
+                        MainFrame.loginUser.setVisible(false);
+                        MainFrame.userMenu.setVisible(true);
+                    }
+
+                    DBManager manager = new DBManager();
+                    manager.connect();
+
+                } catch(Exception a){
+                    a.printStackTrace();
+                }
+
+                loginField.setText(null);
+                passwordField.setText(null);
             }
         });
+
+
+
+
+
+
 
         singButton.addActionListener(new ActionListener() {
             @Override
