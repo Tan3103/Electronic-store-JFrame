@@ -15,7 +15,7 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-/*
+
     public void addSmartphone(Smartphone smartphone) {
         try {
             PreparedStatement statement = connection.prepareStatement("" +
@@ -34,8 +34,6 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-
-
 
     public void addLaptop(Laptop laptop) {
         try {
@@ -74,7 +72,7 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-*/
+
     public void addCustomer(Customer customer) {
         try {
             PreparedStatement statement = connection.prepareStatement("" +
@@ -91,7 +89,8 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-/*
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public ArrayList<Customer> getAllVisitor() {
         ArrayList<Customer> customerList = new ArrayList<>();
         try {
@@ -113,7 +112,7 @@ public class DBManager {
         return customerList;
     }
 
-    /*public ArrayList<Smartphone> getAllSmartphone(){
+    public ArrayList<Smartphone> getAllSmartphone(){
         ArrayList<Smartphone> smartphoneList = new ArrayList<>();
         try{
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM numberSIM");
@@ -125,21 +124,21 @@ public class DBManager {
                 String name = resultSet.getString("name");
                 int price = resultSet.getInt("price");
                 int count = resultSet.getInt("count");
-                int discount = resultSet.getInt("discount");
+                int numberSIM = resultSet.getInt("numberSIM");
 
-                guitarsList.add(new Smartphone(id, type, name, price, count, discount, strings, frets));
+                smartphoneList.add(new Smartphone(id, type, name, price, count, numberSIM));
             }
             statement.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return guitarsList;
+        return smartphoneList;
     }
 
-    public ArrayList<Laptop> getAllKeyboard(){
-        ArrayList<Laptop> keyboardList = new ArrayList<>();
+    public ArrayList<Laptop> getAllLaptop(){
+        ArrayList<Laptop> laptopList = new ArrayList<>();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM keyboardinstruments");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM laptop");
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()){
@@ -148,16 +147,15 @@ public class DBManager {
                 String name = resultSet.getString("name");
                 int price = resultSet.getInt("price");
                 int count = resultSet.getInt("count");
-                int discount = resultSet.getInt("discount");
-                int keyss = resultSet.getInt("keyss");
+                String videoCard = resultSet.getString("videoCard");
 
-                keyboardList.add(new Laptop(id, type, name, price, count, discount,keyss));
+                laptopList.add(new Laptop(id, type, name, price, count, videoCard));
             }
             statement.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return keyboardList;
+        return laptopList;
     }
 
     public ArrayList<PhotoCamera> getAllPercussion(){
@@ -184,6 +182,7 @@ public class DBManager {
         return percussionList;
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void deleteVisitors(Integer id){
         try{
             PreparedStatement statement = connection.prepareStatement("" + "DELETE FROM visitor WHERE id = ?");
@@ -195,9 +194,9 @@ public class DBManager {
         }
     }
 
-    public void deleteGuitar(Integer id){
+    public void deleteProduct(Integer id){
         try{
-            PreparedStatement statement = connection.prepareStatement("" + "DELETE FROM guitar WHERE id = ?");
+            PreparedStatement statement = connection.prepareStatement("" + "DELETE FROM product WHERE id = ?");
             statement.setInt(1, id);
             statement.executeUpdate();
             statement.close();
@@ -205,32 +204,10 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-
-    public void deleteKeyboard(Integer id){
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void updateProduct(Integer id) {
         try{
-            PreparedStatement statement = connection.prepareStatement("" + "DELETE FROM keyboardinstruments WHERE id = ?");
-            statement.setInt(1, id);
-            statement.executeUpdate();
-            statement.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void deletePercussion(Integer id){
-        try{
-            PreparedStatement statement = connection.prepareStatement("" + "DELETE FROM percussioninstruments WHERE id = ?");
-            statement.setInt(1, id);
-            statement.executeUpdate();
-            statement.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void updateGuitar(Integer id) {
-        try{
-            PreparedStatement statement = connection.prepareStatement("" + "UPDATE guitar SET count=count-1 WHERE id=?");
+            PreparedStatement statement = connection.prepareStatement("" + "UPDATE product SET count=count-1 WHERE id=?");
 
             statement.setInt(1, id);
             statement.executeUpdate();
@@ -239,36 +216,14 @@ public class DBManager {
             e.printStackTrace();
         }
     }
-
-    public void updateKeyboard(Integer id) {
-        try{
-            PreparedStatement statement = connection.prepareStatement("" + "UPDATE keyboardinstruments SET count=count-1 WHERE id=?");
-
-            statement.setInt(1, id);
-            statement.executeUpdate();
-            statement.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public void updatePercussion(Integer id) {
-        try{
-            PreparedStatement statement = connection.prepareStatement("" + "UPDATE percussioninstruments SET count=count-1 WHERE id=?");
-
-            statement.setInt(1, id);
-            statement.executeUpdate();
-            statement.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public String findGuitar(String findName){
         String s = "";
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM guitar WHERE name = '" + findName + "'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE type_id = 1 AND name = '" + findName + "'");
             ResultSet resultSet = statement.executeQuery();
+
             while(resultSet.next()) {
                 Integer id = resultSet.getInt("id");
                 String type = resultSet.getString("type");
@@ -279,7 +234,7 @@ public class DBManager {
                 int strings = resultSet.getInt("strings");
                 int frets = resultSet.getInt("frets");
 
-                Smartphone find = new Smartphone(id, type, name, price, count, discount, strings, frets);
+                Guitar find = new Guitar(id, type, name, price, count, discount, strings, frets);
                 s = find.info();
             }
             statement.close();
@@ -292,7 +247,7 @@ public class DBManager {
     public String findKeyboard(String findName){
         String s = "";
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM keyboardinstruments WHERE name = '" + findName + "'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE type_id = 2 AND name = '" + findName + "'");
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()) {
                 Integer id = resultSet.getInt("id");
@@ -303,7 +258,7 @@ public class DBManager {
                 int discount = resultSet.getInt("discount");
                 int keyss = resultSet.getInt("keyss");
 
-                Laptop find = new Laptop(id, type, name, price, count, discount, keyss);
+                KeyboardInstruments find = new KeyboardInstruments(id, type, name, price, count, discount, keyss);
                 s = find.info();
             }
             statement.close();
@@ -316,7 +271,7 @@ public class DBManager {
     public String findPercussion(String findName){
         String s = "";
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM percussioninstruments WHERE name = '" + findName + "'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE type_id = 3 AND name = '" + findName + "'");
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()) {
                 Integer id = resultSet.getInt("id");
@@ -327,7 +282,7 @@ public class DBManager {
                 int discount = resultSet.getInt("discount");
                 String diameter = resultSet.getString("diameter");
 
-                PhotoCamera find = new PhotoCamera(id, type, name, price, count, discount, diameter);
+                PercussionInstruments find = new PercussionInstruments(id, type, name, price, count, discount, diameter);
                 s = find.info();
             }
             statement.close();
@@ -336,80 +291,7 @@ public class DBManager {
         }
         return s;
     }
-
-    public String findTypeGuitar(String findType){
-        String s = "";
-        try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM guitar WHERE type = '" + findType + "'");
-            ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next()) {
-                Integer id = resultSet.getInt("id");
-                String type = resultSet.getString("type");
-                String name = resultSet.getString("name");
-                int price = resultSet.getInt("price");
-                int count = resultSet.getInt("count");
-                int discount = resultSet.getInt("discount");
-                int strings = resultSet.getInt("strings");
-                int frets = resultSet.getInt("frets");
-
-                Smartphone find = new Smartphone(id, type, name, price, count, discount, strings, frets);
-                s = find.info();
-            }
-            statement.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return s;
-    }
-
-    public String findTypeKeyboard(String findType){
-        String s = "";
-        try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM keyboardinstruments WHERE type = '" + findType + "'");
-            ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next()) {
-                Integer id = resultSet.getInt("id");
-                String type = resultSet.getString("type");
-                String name = resultSet.getString("name");
-                int price = resultSet.getInt("price");
-                int count = resultSet.getInt("count");
-                int discount = resultSet.getInt("discount");
-                int keyss = resultSet.getInt("keyss");
-
-                Laptop find = new Laptop(id, type, name, price, count, discount, keyss);
-                s = find.info();
-            }
-            statement.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return s;
-    }
-
-    public String findTypePercussion(String findType){
-        String s = "";
-        try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM percussioninstruments WHERE type = '" + findType + "'");
-            ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next()) {
-                Integer id = resultSet.getInt("id");
-                String type = resultSet.getString("type");
-                String name = resultSet.getString("name");
-                int price = resultSet.getInt("price");
-                int count = resultSet.getInt("count");
-                int discount = resultSet.getInt("discount");
-                String diameter = resultSet.getString("diameter");
-
-                PhotoCamera find = new PhotoCamera(id, type, name, price, count, discount, diameter);
-                s = find.info();
-            }
-            statement.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return s;
-    }
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public ArrayList<Product> getAllDiscount(){
         ArrayList<Product> discountList = new ArrayList<>();
         try{
@@ -528,7 +410,5 @@ public class DBManager {
         }
         return customer;
     }
- */
-
 }
 
