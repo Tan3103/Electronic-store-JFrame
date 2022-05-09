@@ -21,8 +21,8 @@ public class Main {
             if(pd.getOperationType().equals("ADD")){
                 outputStream.writeObject(pd);
             }
-            else if(pd.getOperationType().equals("ADDGuitar") || pd.getOperationType().equals("ADDKeyboard") ||
-                    pd.getOperationType().equals("ADDPercussion")){
+            else if(pd.getOperationType().equals("ADD S") || pd.getOperationType().equals("ADD L") ||
+                    pd.getOperationType().equals("ADD P")){
                 outputStream.writeObject(pd);
             }
             else if(pd.getOperationType().equals("LIST")){
@@ -36,7 +36,7 @@ public class Main {
                 }
                 DeleteUser.textArea.append(s);
             }
-            else if(pd.getOperationType().equals("LIST Guitar")){
+            else if(pd.getOperationType().equals("LIST S")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
                 ArrayList<Smartphone> arrayListFromServer = infoFromServer.getGuitars();
@@ -49,7 +49,7 @@ public class Main {
                 DeleteProduct.textArea.append(s);
                 CatalogMenu.textArea.append(s);
             }
-            else if(pd.getOperationType().equals("LIST Keyboard")){
+            else if(pd.getOperationType().equals("LIST L")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
                 ArrayList<Laptop> arrayListFromServer = infoFromServer.getKeyboardInstruments();
@@ -62,7 +62,7 @@ public class Main {
                 DeleteProduct.textArea.append(s1);
                 CatalogMenu.textArea.append(s1);
             }
-            else if(pd.getOperationType().equals("LIST Percussion")){
+            else if(pd.getOperationType().equals("LIST P")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
                 ArrayList<PhotoCamera> arrayListFromServer = infoFromServer.getPercussionInstruments();
@@ -75,68 +75,31 @@ public class Main {
                 DeleteProduct.textArea.append(s);
                 CatalogMenu.textArea.append(s);
             }
-            else if(pd.getOperationType().equals("Delete Visitor") || pd.getOperationType().equals("Delete Guitar") ||
-                    pd.getOperationType().equals("Delete Keyboard") || pd.getOperationType().equals("Delete Percussion") ||
-                    pd.getOperationType().equals("Update Guitar") || pd.getOperationType().equals("Update Keyboard") ||
-                    pd.getOperationType().equals("Update Percussion")){
+            else if(pd.getOperationType().equals("Delete Customer") || pd.getOperationType().equals("Delete Product") ||
+                    pd.getOperationType().equals("Update Product")){
                 outputStream.writeObject(pd);
             }
-            else if(pd.getOperationType().equals("Find Guitar")){
+            else if(pd.getOperationType().equals("Find S")){
                  outputStream.writeObject(pd);
                  PackageData infoFromServer = (PackageData)inputStream.readObject();
                  String guitar = infoFromServer.getFind();
 
                 FindMenu.textArea.append(guitar);
             }
-            else if(pd.getOperationType().equals("Find Keyboard")){
+            else if(pd.getOperationType().equals("Find L")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
                 String guitar = infoFromServer.getFind();
 
                 FindMenu.textArea.append(guitar);
             }
-            else if(pd.getOperationType().equals("Find Percussion")){
+            else if(pd.getOperationType().equals("Find P")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
                 String guitar = infoFromServer.getFind();
 
                 FindMenu.textArea.append(guitar);
             }
-            else if(pd.getOperationType().equals("Find Type Guitar")){
-                outputStream.writeObject(pd);
-                PackageData infoFromServer = (PackageData)inputStream.readObject();
-                String guitar = infoFromServer.getFind();
-
-                FindMenu.textArea.append(guitar);
-            }
-            else if(pd.getOperationType().equals("Find Type Keyboard")){
-                outputStream.writeObject(pd);
-                PackageData infoFromServer = (PackageData)inputStream.readObject();
-                String guitar = infoFromServer.getFind();
-
-                FindMenu.textArea.append(guitar);
-            }
-            else if(pd.getOperationType().equals("Find Type Percussion")){
-                outputStream.writeObject(pd);
-                PackageData infoFromServer = (PackageData)inputStream.readObject();
-                String guitar = infoFromServer.getFind();
-
-                FindMenu.textArea.append(guitar);
-            }
-            /*
-            else if(pd.getOperationType().equals("LIST Discount")){
-                outputStream.writeObject(pd);
-                PackageData infoFromServer = (PackageData)inputStream.readObject();
-                ArrayList<Product> arrayListFromServer = infoFromServer.getProducts();
-                String s = "";
-
-                for(int i=0; i< arrayListFromServer.size(); i++){
-                    s += arrayListFromServer.get(i).countDiscount()+ "\n";
-                }
-                DiscountMenu.textArea.append(s);
-            }
-
-             */
             inputStream.close();
             outputStream.close();
             socket.close();
