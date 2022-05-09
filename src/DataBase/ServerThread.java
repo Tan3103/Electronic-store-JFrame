@@ -10,7 +10,7 @@ public class ServerThread extends Thread  {
     public ServerThread(Socket socket){
         this.socket = socket;
     }
-/*
+
     public void run(){
         try{
             DBManager manager = new DBManager();
@@ -24,8 +24,9 @@ public class ServerThread extends Thread  {
             while((packageData = ((PackageData)inputStream.readObject())) != null){
                 if(packageData.getOperationType().equals("ADD")){
                     Customer customer = packageData.getVisitor();
-                    manager.addVisitor(customer);
+                    manager.addCustomer(customer);
                 }
+                /*
                 else if(packageData.getOperationType().equals("ADDGuitar")){
                     Smartphone smartphone = packageData.getGuitar();
                     manager.addGuitar(smartphone);
@@ -132,6 +133,8 @@ public class ServerThread extends Thread  {
                     toPercussion.setProducts(arrayPercussion);
                     outputStream.writeObject(toPercussion);
                 }
+
+                 */
             }
             inputStream.close();
             outputStream.close();
@@ -141,5 +144,5 @@ public class ServerThread extends Thread  {
         }
     }
 
- */
+
 }

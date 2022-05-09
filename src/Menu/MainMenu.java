@@ -49,19 +49,21 @@ public class MainMenu extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (loginField.getText().equals("admin") && passwordField.getText().equals("password")) {
-                    MainFrame.loginUser.setVisible(false);
+                    MainFrame.menu.setVisible(false);
                     MainFrame.adminMenu.setVisible(true);
+                    JOptionPane.showInternalMessageDialog(null, "WELCOME ADMIN");
                 }
 
                 try {
                     DBManager result = new DBManager();
                     result.connect();
                     Statement stmt = connection.createStatement();
-                    String sql = "select * from  visitor where login='"  + loginField.getText() + "' and password='" + passwordField.getText() +  "' ";
+                    String sql = "select * from  customer where login='"  + loginField.getText() + "' and password='" + passwordField.getText() +  "' ";
                     ResultSet rs = stmt.executeQuery(sql);
                     if(rs.next()){
-                        MainFrame.loginUser.setVisible(false);
+                        MainFrame.menu.setVisible(false);
                         MainFrame.userMenu.setVisible(true);
+                        JOptionPane.showInternalMessageDialog(null, "WELCOME");
                     }
 
                     DBManager manager = new DBManager();

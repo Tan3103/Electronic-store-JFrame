@@ -64,11 +64,10 @@ public class SingUser extends Container {
                 try{
 
                         Customer new_customer = new Customer(null, loginField.getText(), passwordField.getText(), nameField.getText(), surnameField.getText());
-
                         PackageData packageData = new PackageData("ADD", new_customer);
                         Main.connect(packageData);
+                        JOptionPane.showInternalMessageDialog(null,"SUCCESSFUL");
 
-                        label.setText("OK");
 
                 }catch (Exception a){
                     a.printStackTrace();
