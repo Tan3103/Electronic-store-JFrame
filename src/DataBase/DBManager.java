@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class DBManager {
     public static Connection connection = null;
 
-    public void connect(){
-        try{
+    public void connect() {
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/bd_olzhas?useUnicode=true&serverTimezone=UTC", "root", "");
@@ -16,66 +16,61 @@ public class DBManager {
         }
     }
 /*
-    public void addGuitar(Smartphone smartphone) {
-            try{
+    public void addSmartphone(Smartphone smartphone) {
+        try {
             PreparedStatement statement = connection.prepareStatement("" +
-                    "INSERT INTO guitar (id, type, name, price, count, discount, strings, frets) " +
-                    "VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)");
+                    "INSERT INTO smartphone (id, type, name, price, count, numberSIM) " +
+                    "VALUES (NULL, ?, ?, ?, ?, ?)");
 
             statement.setString(1, smartphone.getType());
             statement.setString(2, smartphone.getName());
             statement.setInt(3, smartphone.getCost());
             statement.setInt(4, smartphone.getCount());
-            statement.setInt(5, smartphone.getDiscount());
-            statement.setInt(6, smartphone.getNumberStrings());
-            statement.setInt(7, smartphone.getFrets());
+            statement.setInt(5, smartphone.getNumberSIM());
 
             statement.executeUpdate();
-
             statement.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
 
-    public void addKeyboard(Laptop laptop) {
-        try{
+    public void addLaptop(Laptop laptop) {
+        try {
             PreparedStatement statement = connection.prepareStatement("" +
-                    "INSERT INTO keyboardinstruments (id, type, name, price, count, discount, keyss) " +
-                    "VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+                    "INSERT INTO laptop (id, type, name, price, count, videoCard) " +
+                    "VALUES (NULL, ?, ?, ?, ?, ?)");
 
             statement.setString(1, laptop.getType());
             statement.setString(2, laptop.getName());
             statement.setInt(3, laptop.getCost());
             statement.setInt(4, laptop.getCount());
-            statement.setInt(5, laptop.getDiscount());
-            statement.setInt(6, laptop.getNumberKeys());
+            statement.setString(5, laptop.getVideoCard());
 
             statement.executeUpdate();
             statement.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void addPercussion(PhotoCamera photoCamera) {
-        try{
+    public void addPhotoCamera(PhotoCamera photoCamera) {
+        try {
             PreparedStatement statement = connection.prepareStatement("" +
-                    "INSERT INTO percussioninstruments (id, type, name, price, count, discount, diameter) " +
-                    "VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+                    "INSERT INTO photoCamera (id, type, name, price, count, typeAutofocus) " +
+                    "VALUES (NULL, ?, ?, ?, ?, ?)");
 
             statement.setString(1, photoCamera.getType());
             statement.setString(2, photoCamera.getName());
             statement.setInt(3, photoCamera.getCost());
             statement.setInt(4, photoCamera.getCount());
-            statement.setInt(5, photoCamera.getDiscount());
-            statement.setString(6, photoCamera.getDiameter());
+            statement.setString(5, photoCamera.getTypeAutofocus());
 
             statement.executeUpdate();
             statement.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -97,13 +92,13 @@ public class DBManager {
         }
     }
 /*
-    public ArrayList<Customer> getAllVisitor(){
+    public ArrayList<Customer> getAllVisitor() {
         ArrayList<Customer> customerList = new ArrayList<>();
-        try{
+        try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM visitor");
             ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Integer id = resultSet.getInt("id");
                 String login = resultSet.getString("login");
                 String password = resultSet.getString("password");
@@ -112,16 +107,16 @@ public class DBManager {
                 customerList.add(new Customer(id, login, password, name, surname));
             }
             statement.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return customerList;
     }
 
-    public ArrayList<Smartphone> getAllGuitar(){
-        ArrayList<Smartphone> guitarsList = new ArrayList<>();
+    /*public ArrayList<Smartphone> getAllSmartphone(){
+        ArrayList<Smartphone> smartphoneList = new ArrayList<>();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM guitar");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM numberSIM");
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()){
@@ -131,8 +126,6 @@ public class DBManager {
                 int price = resultSet.getInt("price");
                 int count = resultSet.getInt("count");
                 int discount = resultSet.getInt("discount");
-                int strings = resultSet.getInt("strings");
-                int frets = resultSet.getInt("frets");
 
                 guitarsList.add(new Smartphone(id, type, name, price, count, discount, strings, frets));
             }
@@ -487,7 +480,7 @@ public class DBManager {
             statement.executeUpdate();
 
             statement.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -535,7 +528,7 @@ public class DBManager {
         }
         return customer;
     }
-
  */
+
 }
 

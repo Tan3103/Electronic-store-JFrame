@@ -12,7 +12,6 @@ public class MainFrame extends JFrame {
     public static AdminMenu adminMenu;
     public static CatalogMenu catalogMenu;
     public static FindMenu findMenu;
-
     public static DeleteUser deleteUser;
     public static AddProduct addProduct;
     public static DeleteProduct deleteProduct;
@@ -60,7 +59,6 @@ public class MainFrame extends JFrame {
         findMenu.setVisible(false);
         add(findMenu);
 
-
         deleteUser = new DeleteUser();
         deleteUser.setLocation(0, 0);
         deleteUser.setVisible(false);
@@ -90,7 +88,6 @@ public class MainFrame extends JFrame {
         addLaptop.setLocation(0, 0);
         addLaptop.setVisible(false);
         add(addLaptop);
-
 
     }
 }
