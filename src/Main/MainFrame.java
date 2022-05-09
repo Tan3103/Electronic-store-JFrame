@@ -18,7 +18,7 @@ public class MainFrame extends JFrame {
     public static DeleteProduct deleteProduct;
     public static AddSmartphone addSmartphone;
     public static AddNewKeyboard addNewKeyboard;
-    public static AddNewPercussion addNewPercussion;
+    public static AddLaptop addLaptop;
     public static PurchasedGoods purchasedGoods;
 
     public MainFrame(){
@@ -91,10 +91,10 @@ public class MainFrame extends JFrame {
         addNewKeyboard.setVisible(false);
         add(addNewKeyboard);
 
-        addNewPercussion = new AddNewPercussion();
-        addNewPercussion.setLocation(0, 0);
-        addNewPercussion.setVisible(false);
-        add(addNewPercussion);
+        addLaptop = new AddLaptop();
+        addLaptop.setLocation(0, 0);
+        addLaptop.setVisible(false);
+        add(addLaptop);
 
         purchasedGoods = new PurchasedGoods();
         purchasedGoods.setLocation(0,0);

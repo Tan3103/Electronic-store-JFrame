@@ -8,17 +8,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddNewPercussion extends Container {
-    public AddNewPercussion(){
+public class AddLaptop extends Container {
+    public AddLaptop(){
         setSize(500, 500);
         setLayout(null);
 
-        String[] typePercussion = {"Drum", "Plate", "Djembe", "Darbook"};
-
-        JLabel Label = new JLabel("Percussion instrument");
-        Label.setBounds(175, 40, 360, 25);
-        Label.setFont(new Font("Tahoma", Font.PLAIN, 16));
-        add(Label);
+        String[] typePercussion = {"Acer", "Asus", "Lenovo", "Macbook", "Neo"};
 
         JLabel typeLabel = new JLabel("Type:");
         typeLabel.setBounds(75, 75, 125, 25);
@@ -79,7 +74,7 @@ public class AddNewPercussion extends Container {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MainFrame.addNewPercussion.setVisible(false);
+                MainFrame.addLaptop.setVisible(false);
                 MainFrame.addProduct.setVisible(true);
             }
         });
