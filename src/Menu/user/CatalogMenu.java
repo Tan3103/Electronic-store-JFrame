@@ -49,7 +49,7 @@ public class CatalogMenu extends Container {
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackageData pd = new PackageData("LIST Guitar");
+                PackageData pd = new PackageData("LIST S");
                 Main.connect(pd);
             }
         });
@@ -59,7 +59,7 @@ public class CatalogMenu extends Container {
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackageData pd = new PackageData("LIST Keyboard");
+                PackageData pd = new PackageData("LIST L");
                 Main.connect(pd);
             }
         });
@@ -69,7 +69,7 @@ public class CatalogMenu extends Container {
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackageData pd = new PackageData("LIST Percussion");
+                PackageData pd = new PackageData("LIST P");
                 Main.connect(pd);
             }
         });
@@ -86,13 +86,12 @@ public class CatalogMenu extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    PackageData pd = new PackageData("UPDATE", Integer.parseInt(numberField.getText()));
+                    PackageData pd = new PackageData("Update Product", Integer.parseInt(numberField.getText()));
                     Main.connect(pd);
                     textArea.setText(null);
                 }
                 catch (Exception a){
                     a.printStackTrace();
-                    textArea.setText("ERROR");
                 }
             }
         });

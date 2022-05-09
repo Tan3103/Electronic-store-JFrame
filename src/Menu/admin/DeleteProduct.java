@@ -13,15 +13,15 @@ public class DeleteProduct extends Container {
         setSize(500, 500);
         setLayout(null);
 
-        JButton guitarsButton = new JButton("List of Guitars");
+        JButton guitarsButton = new JButton("List of smartphone");
         guitarsButton.setBounds(70, 40, 360, 25);
         add(guitarsButton);
 
-        JButton keyboardButton = new JButton("List of Keyboard instruments");
+        JButton keyboardButton = new JButton("List of laptop");
         keyboardButton.setBounds(70, 70, 360, 25);
         add(keyboardButton);
 
-        JButton percussionButton = new JButton("List of Percussion instruments");
+        JButton percussionButton = new JButton("List of photo camera");
         percussionButton.setBounds(70, 100, 360, 25);
         add(percussionButton);
 
@@ -37,20 +37,9 @@ public class DeleteProduct extends Container {
         numberField.setBounds(360, 340, 70, 25);
         add(numberField);
 
-        JButton deleteGuitarButton = new JButton("Delete Guitar");
-        deleteGuitarButton.setBounds(70, 375, 175, 25);
-        add(deleteGuitarButton);
-        deleteGuitarButton.setVisible(false);
-
-        JButton deleteKeyboardButton = new JButton("Delete Keyboard");
-        deleteKeyboardButton.setBounds(70, 375, 175, 25);
-        add(deleteKeyboardButton);
-        deleteKeyboardButton.setVisible(false);
-
-        JButton deletePercussionButton = new JButton("Delete Percussion");
-        deletePercussionButton.setBounds(70, 375, 175, 25);
-        add(deletePercussionButton);
-        deletePercussionButton.setVisible(false);
+        JButton deleteButton = new JButton("Delete");
+        deleteButton.setBounds(70, 375, 175, 25);
+        add(deleteButton);
 
         JButton backButton = new JButton("Back to menu");
         backButton.setBounds(255, 375, 175, 25);
@@ -59,12 +48,8 @@ public class DeleteProduct extends Container {
         guitarsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                deletePercussionButton.setVisible(false);
-                deleteKeyboardButton.setVisible(false);
-                deleteGuitarButton.setVisible(true);
-
                 textArea.setText(null);
-                PackageData pd = new PackageData("LIST Guitar");
+                PackageData pd = new PackageData("LIST S");
                 Main.connect(pd);
             }
         });
@@ -72,12 +57,8 @@ public class DeleteProduct extends Container {
         keyboardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                deletePercussionButton.setVisible(false);
-                deleteKeyboardButton.setVisible(true);
-                deleteGuitarButton.setVisible(false);
-
                 textArea.setText(null);
-                PackageData pd = new PackageData("LIST Keyboard");
+                PackageData pd = new PackageData("LIST L");
                 Main.connect(pd);
             }
         });
@@ -85,29 +66,22 @@ public class DeleteProduct extends Container {
         percussionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                deletePercussionButton.setVisible(true);
-                deleteKeyboardButton.setVisible(false);
-                deleteGuitarButton.setVisible(false);
-
                 textArea.setText(null);
-                PackageData pd = new PackageData("LIST Percussion");
+                PackageData pd = new PackageData("LIST P");
                 Main.connect(pd);
             }
         });
 
-        deleteGuitarButton.addActionListener(new ActionListener() {
+        deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DBManager manager = new DBManager();
+                PackageData pd = new PackageData("Delete Product", Integer.parseInt((numberField.getText())));
+                Main.connect(pd);
 
-                //manager.deleteGuitar(Integer.parseInt(numberField.getText()));
                 numberField.setText(null);
                 textArea.setText(null);
-
-                deleteGuitarButton.setVisible(false);
             }
         });
-
 
         backButton.addActionListener(new ActionListener() {
             @Override

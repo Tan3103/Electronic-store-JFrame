@@ -13,20 +13,6 @@ public class FindMenu extends Container {
         setSize(500, 500);
         setLayout(null);
 
-        JLabel typeLabel = new JLabel("TYPE:");
-        typeLabel.setBounds(70, 50, 50, 30);
-        add(typeLabel);
-
-        JTextField typeField = new JTextField();
-        typeField.setBounds(130, 50, 240, 25);
-        add(typeField);
-
-        JButton find1Button = new JButton("FIND");
-        find1Button.setBounds(120, 80, 100, 25);
-        add(find1Button);
-
-        //////////////////////////////////////////////////////////////
-
         JLabel nameProductLabel = new JLabel("NAME:");
         nameProductLabel.setBounds(70, 125, 120, 25);
         add(nameProductLabel);
@@ -35,9 +21,17 @@ public class FindMenu extends Container {
         nameProductField.setBounds(190, 125, 240, 25);
         add(nameProductField);
 
-        JButton find2Button = new JButton("FIND");
-        find2Button.setBounds(120, 155, 100, 25);
-        add(find2Button);
+        JButton findSmartphoneButton = new JButton("FIND");
+        findSmartphoneButton.setBounds(120, 155, 100, 25);
+        add(findSmartphoneButton);
+
+        JButton findLaptopButton = new JButton("FIND");
+        findLaptopButton.setBounds(120, 155, 100, 25);
+        add(findLaptopButton);
+
+        JButton findPhotoCameraButton = new JButton("FIND");
+        findPhotoCameraButton.setBounds(120, 155, 100, 25);
+        add(findPhotoCameraButton);
 
         ///////////////////////////////////////////
 
@@ -62,22 +56,32 @@ public class FindMenu extends Container {
         add(buyButton);
 
 
-        find1Button.addActionListener(new ActionListener() {
+        findSmartphoneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackageData pd = new PackageData("FIND TYPE", typeField.getText());
+                PackageData pd = new PackageData("Find S", nameProductField.getText());
                 Main.connect(pd);
             }
         });
 
-        find2Button.addActionListener(new ActionListener() {
+        findLaptopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackageData pd = new PackageData("FIND NAME", nameProductField.getText());
+                PackageData pd = new PackageData("Find L", nameProductField.getText());
+                Main.connect(pd);
+            }
+        });
+
+        findPhotoCameraButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textArea.setText(null);
+
+                PackageData pd = new PackageData("Find P", nameProductField.getText());
                 Main.connect(pd);
             }
         });
@@ -86,7 +90,7 @@ public class FindMenu extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    PackageData pd = new PackageData("UPDATE", Integer.parseInt(numberField.getText()));
+                    PackageData pd = new PackageData("Update Product", Integer.parseInt(numberField.getText()));
                     Main.connect(pd);
                     textArea.setText(null);
                 }

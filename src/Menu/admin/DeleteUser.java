@@ -49,7 +49,7 @@ public class DeleteUser extends Container {
         deleteProductButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PackageData pd = new PackageData("Delete Visitor", Integer.parseInt(numberField.getText()));
+                PackageData pd = new PackageData("Delete Customer", Integer.parseInt(numberField.getText()));
                 Main.connect(pd);
 
                 numberField.setText(null);
