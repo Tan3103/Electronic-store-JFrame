@@ -67,4 +67,8 @@ public abstract class Product implements Serializable {
     public String info() {
         return getId() + ")  " + type + " " + name + "  Price:" + cost + " Count:" + getCount();
     }
+
+    public String infoList() {
+        return getId() + ") " + getType() + " " + getName() + ", Price:" + getCost();
+    }
 }

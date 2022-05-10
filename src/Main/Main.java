@@ -6,6 +6,7 @@ import Menu.admin.DeleteProduct;
 import Menu.admin.DeleteUser;
 import Menu.user.CatalogMenu;
 import Menu.user.FindMenu;
+import Menu.user.UserMenu;
 import com.company.*;
 import java.io.*;
 import java.net.Socket;
@@ -21,7 +22,7 @@ public class Main {
 
             if(pd.getOperationType().equals("ADD") || pd.getOperationType().equals("ADD S") || pd.getOperationType().equals("ADD L") ||
                     pd.getOperationType().equals("ADD P") || pd.getOperationType().equals("Delete Customer") ||
-                    pd.getOperationType().equals("Delete Product") || pd.getOperationType().equals("Update Product")/* || pd.getOperationType().equals("ADD Basket")*/
+                    pd.getOperationType().equals("Delete Product") || pd.getOperationType().equals("Update Product") || pd.getOperationType().equals("ADD Basket")
                     ){
                 outputStream.writeObject(pd);
             }
@@ -111,13 +112,23 @@ public class Main {
 
                 FindMenu.textArea.append(s);
             }
-
             else if(pd.getOperationType().equals("Get Visitor")){
                 outputStream.writeObject(pd);
 
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
                 Customer customer = infoFromServer.getCustomer();
                 MainMenu.customer = customer;
+            }
+            else if(pd.getOperationType().equals("LIST CART")){
+                outputStream.writeObject(pd);
+                PackageData infoFromServer = (PackageData)inputStream.readObject();
+                ArrayList<Product> arrayListFromServer = infoFromServer.getProducts();
+                String s = "";
+
+                for(int i=0; i< arrayListFromServer.size(); i++){
+                    s += arrayListFromServer.get(i).infoList()+ "\n";
+                }
+                UserMenu.textArea.append(s);
             }
             inputStream.close();
             outputStream.close();

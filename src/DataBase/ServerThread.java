@@ -70,6 +70,13 @@ public class ServerThread extends Thread  {
                     outputStream.writeObject(toPercussion);
                     break;
                 }
+                else if(packageData.getOperationType().equals("LIST CART")){
+                    ArrayList<Product> arrayPercussion = manager.getAllBasket(packageData.getId());
+                    PackageData toPercussion = new PackageData();
+                    toPercussion.setProducts(arrayPercussion);
+                    outputStream.writeObject(toPercussion);
+                    break;
+                }
                 else if(packageData.getOperationType().equals("Delete Customer")){
                     int idServer = packageData.getId();
                     manager.deleteCustomer(idServer);
@@ -114,14 +121,10 @@ public class ServerThread extends Thread  {
                     break;
                 }
 
-
-                /*
                 else if(packageData.getOperationType().equals("ADD Basket")){
-                    manager.updateBasket((packageData.getProduct_id()), packageData.getCustomer_id());
+                    manager.updateBasket(packageData.getCustomer_id(), (packageData.getProduct_id()));
                     break;
                 }
-
-                 */
             }
             inputStream.close();
             outputStream.close();

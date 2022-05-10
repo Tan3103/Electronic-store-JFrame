@@ -1,10 +1,13 @@
 package Menu.user;
+import DataBase.PackageData;
+import Main.Main;
 import Main.MainFrame;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Menu.MainMenu;
 
 public class UserMenu extends Container {
     public static JLabel centerLabel;
@@ -53,6 +56,16 @@ public class UserMenu extends Container {
         backButton.setFont(new Font("Verdana", Font.BOLD , 12));
         backButton.setBounds(100, 150, 300, 40);
         add(backButton);
+
+        basket.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textArea.setText(null);
+
+                PackageData pd = new PackageData("LIST CART", MainMenu.customer.getId());
+                Main.connect(pd);
+            }
+        });
 
         catalogButton.addActionListener(new ActionListener() {
             @Override

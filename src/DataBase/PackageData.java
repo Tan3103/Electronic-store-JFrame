@@ -19,9 +19,11 @@ public class PackageData implements Serializable {
     private ArrayList<Smartphone> smartphones;
     private ArrayList<Laptop> laptops;
     private ArrayList<PhotoCamera> photoCameras;
+    private ArrayList<Product> products;
 
     public PackageData() {
     }
+
 
 
     public PackageData(Customer customer) {
@@ -170,5 +172,13 @@ public class PackageData implements Serializable {
 
     public void setProduct_id(Integer product_id) {
         this.product_id = product_id;
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
     }
 }

@@ -33,4 +33,8 @@ public class Smartphone extends Product implements Serializable {
     public String info() {
         return getId() + ") " + getType() + " " + getName() + ", Price:" + getCost() + ", Count:" + getCount() + ", Number of SIM cards:" + numberSIM;
     }
+    @Override
+    public String infoList() {
+        return getId() + ") " + getType() + " " + getName() + ", Price:" + getCost();
+    }
 }

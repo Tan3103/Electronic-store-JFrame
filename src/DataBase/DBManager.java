@@ -224,10 +224,10 @@ public class DBManager {
     public void updateBasket(Integer product_id, Integer customer_id) {
         try{
             PreparedStatement statement = connection.prepareStatement("" +
-                    "INSERT INTO backet (id, customer_id, product_id ) " +
+                    "INSERT INTO bascket (id, product_id, customer_id) " +
                     "VALUES (NULL, ?, ?)");
-            statement.setInt(1, customer_id);
-            statement.setInt(2, product_id);
+            statement.setInt(1, product_id);
+            statement.setInt(2, customer_id);
             statement.executeUpdate();
 
             statement.close();
@@ -239,7 +239,7 @@ public class DBManager {
     public ArrayList<Product> getAllBasket(Integer idka){
         ArrayList<Product> productList = new ArrayList<>();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM backet WHERE customer_id = '" + idka + "'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM bascket WHERE customer_id = '" + idka + "'");
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
