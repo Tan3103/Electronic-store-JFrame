@@ -20,7 +20,7 @@ public class Main {
 
             if(pd.getOperationType().equals("ADD") || pd.getOperationType().equals("ADD S") || pd.getOperationType().equals("ADD L") ||
                     pd.getOperationType().equals("ADD P") || pd.getOperationType().equals("Delete Customer") ||
-                    pd.getOperationType().equals("Delete Product") || pd.getOperationType().equals("Update Product")){
+                    pd.getOperationType().equals("Delete Product") || pd.getOperationType().equals("Update Product") || pd.getOperationType().equals("ADD Basket")){
                 outputStream.writeObject(pd);
             }
             else if(pd.getOperationType().equals("LIST")){
