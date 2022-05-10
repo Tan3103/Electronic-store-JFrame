@@ -28,14 +28,11 @@ public class PackageData implements Serializable {
         this.customer = customer;
     }
 
-    /*
     public PackageData(String operationType, Integer customer_id, Integer product_id) {
         this.operationType = operationType;
         this.customer_id = customer_id;
         this.product_id = product_id;
     }
-
-     */
 
     public PackageData(String operationType, Smartphone smartphone) {
         this.operationType = operationType;

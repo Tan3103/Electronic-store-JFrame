@@ -95,11 +95,10 @@ public class CatalogMenu extends Container {
                 try {
                     PackageData pd = new PackageData("Update Product", Integer.parseInt(numberField.getText()));
                     Main.connect(pd);
-                    /*
+
                     PackageData pd_basket = new PackageData("ADD Basket", Integer.parseInt(numberField.getText()), MainMenu.customer.getId());
                     Main.connect(pd_basket);
 
-                     */
                     textArea.setText(null);
                     numberField.setText(null);
                 }

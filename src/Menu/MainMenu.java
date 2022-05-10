@@ -1,4 +1,4 @@
-package Menu.user;
+package Menu;
 import DataBase.DBManager;
 import DataBase.PackageData;
 import Main.Main;
