@@ -23,11 +23,11 @@ public class PhotoCamera extends Product implements Serializable {
 
     @Override
     public String toString() {
-        return getType() + " " + getName() + " " + getCost() + " " + typeAutofocus;
+        return getType() + " " + getName() + " " + getCost() + " " + getCount() + " " + typeAutofocus;
     }
 
     @Override
     public String info() {
-        return getId() + ")  " + getType() + " " + getName() + '\n' + "  Price:" + getCost() + ", Type of autofocus:" + typeAutofocus;
+        return getId() + ") " + getType() + " " + getName() + ", Price:" + getCost() + ", Count:" + getCount() + ", Type of autofocus:" + typeAutofocus;
     }
 }

@@ -93,6 +93,7 @@ public class FindMenu extends Container {
                     PackageData pd = new PackageData("Update Product", Integer.parseInt(numberField.getText()));
                     Main.connect(pd);
                     textArea.setText(null);
+                    numberField.setText(null);
                 }
                 catch (Exception a){
                     a.printStackTrace();

@@ -219,74 +219,71 @@ public class DBManager {
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public String findSmartphone(String findName){
-        String s = "";
+    public ArrayList<Smartphone> findSmartphone(String findName){
+        ArrayList<Smartphone> smartphoneList = new ArrayList<>();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE type_id = 1 AND name = '" + findName + "'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE typeID = 1 AND name = '" + findName + "'");
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()) {
                 Integer id = resultSet.getInt("id");
                 String type = resultSet.getString("type");
                 String name = resultSet.getString("name");
-                int price = resultSet.getInt("price");
+                int cost = resultSet.getInt("cost");
                 int count = resultSet.getInt("count");
                 int numberSIM = resultSet.getInt("numberSIM");
 
-                Smartphone find = new Smartphone(id, type, name, price, count, numberSIM);
-                s = find.info();
+                smartphoneList.add(new Smartphone(id, type, name, cost, count, numberSIM));
             }
             statement.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return s;
+        return smartphoneList;
     }
 
-    public String findLaptop(String findName){
-        String s = "";
+    public ArrayList<Laptop> findLaptop(String findName){
+        ArrayList<Laptop> laptopList = new ArrayList<>();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE type_id = 2 AND name = '" + findName + "'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE typeID = 2 AND name = '" + findName + "'");
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()) {
                 Integer id = resultSet.getInt("id");
                 String type = resultSet.getString("type");
                 String name = resultSet.getString("name");
-                int price = resultSet.getInt("price");
+                int cost = resultSet.getInt("cost");
                 int count = resultSet.getInt("count");
                 String videoCard = resultSet.getString("videoCard");
 
-                Laptop find = new Laptop(id, type, name, price, count, videoCard);
-                s = find.info();
+                laptopList.add(new Laptop(id, type, name, cost, count, videoCard));
             }
             statement.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return s;
+        return laptopList;
     }
 
-    public String findPhotoCamera(String findName){
-        String s = "";
+    public ArrayList<PhotoCamera> findPhotoCamera(String findName){
+        ArrayList<PhotoCamera> photoCameraList = new ArrayList<>();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE type_id = 3 AND name = '" + findName + "'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE typeID = 3 AND name = '" + findName + "'");
             ResultSet resultSet = statement.executeQuery();
             while(resultSet.next()) {
                 Integer id = resultSet.getInt("id");
                 String type = resultSet.getString("type");
                 String name = resultSet.getString("name");
-                int price = resultSet.getInt("price");
+                int cost = resultSet.getInt("cost");
                 int count = resultSet.getInt("count");
                 String typeAutofocus = resultSet.getString("typeAutofocus");
 
-                PhotoCamera find = new PhotoCamera(id, type, name, price, count, typeAutofocus);
-                s = find.info();
+                photoCameraList.add(new PhotoCamera(id, type, name, cost, count, typeAutofocus));
             }
             statement.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return s;
+        return photoCameraList;
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public Customer getVisitor(String fname){

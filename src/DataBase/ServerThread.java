@@ -86,21 +86,24 @@ public class ServerThread extends Thread  {
                     break;
                 }
                 else if(packageData.getOperationType().equals("Find S")){
-                    String findSmartphone = manager.findSmartphone(packageData.getFind());
-                    PackageData toPercussion = new PackageData(findSmartphone);
-                    outputStream.writeObject(toPercussion);
+                    ArrayList<Smartphone> arraySmartphone = manager.findSmartphone(packageData.getFind());
+                    PackageData toGuitar = new PackageData();
+                    toGuitar.setSmartphones(arraySmartphone);
+                    outputStream.writeObject(toGuitar);
                     break;
                 }
                 else if(packageData.getOperationType().equals("Find L")){
-                    String findLaptop = manager.findLaptop(packageData.getFind());
-                    PackageData toPercussion = new PackageData(findLaptop);
-                    outputStream.writeObject(toPercussion);
+                    ArrayList<Laptop> arrayLaptop = manager.findLaptop(packageData.getFind());
+                    PackageData toGuitar = new PackageData();
+                    toGuitar.setLaptops(arrayLaptop);
+                    outputStream.writeObject(toGuitar);
                     break;
                 }
                 else if(packageData.getOperationType().equals("Find P")){
-                    String findPhotoCamera = manager.findPhotoCamera(packageData.getFind());
-                    PackageData toPercussion = new PackageData(findPhotoCamera);
-                    outputStream.writeObject(toPercussion);
+                    ArrayList<PhotoCamera> arrayPhotoCamera = manager.findPhotoCamera(packageData.getFind());
+                    PackageData toGuitar = new PackageData();
+                    toGuitar.setPhotoCameras(arrayPhotoCamera);
+                    outputStream.writeObject(toGuitar);
                     break;
                 }
             }

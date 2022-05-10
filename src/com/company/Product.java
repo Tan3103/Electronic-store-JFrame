@@ -61,10 +61,10 @@ public abstract class Product implements Serializable {
 
     @Override
     public String toString() {
-        return type + " " + name + " " + cost;
+        return type + " " + name + " " + cost + " " + count;
     }
 
     public String info() {
-        return getId() + ")  " + type + " " + name + '\n'+ "  Price:" + cost ;
+        return getId() + ")  " + type + " " + name + "  Price:" + cost + " Count:" + getCount();
     }
 }

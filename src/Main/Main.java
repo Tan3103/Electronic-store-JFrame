@@ -74,25 +74,40 @@ public class Main {
                 CatalogMenu.textArea.append(s);
             }
             else if(pd.getOperationType().equals("Find S")){
-                 outputStream.writeObject(pd);
-                 PackageData infoFromServer = (PackageData)inputStream.readObject();
-                 String smartphone = infoFromServer.getFind();
+                outputStream.writeObject(pd);
+                PackageData infoFromServer = (PackageData)inputStream.readObject();
+                ArrayList<Smartphone> arrayListFromServer = infoFromServer.getSmartphones();
+                String s = "";
 
-                 FindMenu.textArea.append(smartphone);
+                for(int i=0; i< arrayListFromServer.size(); i++){
+                    s += arrayListFromServer.get(i).info()+ "\n";
+                }
+
+                 FindMenu.textArea.append(s);
             }
             else if(pd.getOperationType().equals("Find L")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
-                String laptop = infoFromServer.getFind();
+                ArrayList<Laptop> arrayListFromServer = infoFromServer.getLaptops();
+                String s = "";
 
-                FindMenu.textArea.append(laptop);
+                for(int i=0; i< arrayListFromServer.size(); i++){
+                    s += arrayListFromServer.get(i).info()+ "\n";
+                }
+
+                FindMenu.textArea.append(s);
             }
             else if(pd.getOperationType().equals("Find P")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
-                String photoCamera = infoFromServer.getFind();
+                ArrayList<PhotoCamera> arrayListFromServer = infoFromServer.getPhotoCameras();
+                String s = "";
 
-                FindMenu.textArea.append(photoCamera);
+                for(int i=0; i< arrayListFromServer.size(); i++){
+                    s += arrayListFromServer.get(i).info()+ "\n";
+                }
+
+                FindMenu.textArea.append(s);
             }
             inputStream.close();
             outputStream.close();

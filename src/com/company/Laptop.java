@@ -19,11 +19,11 @@ public class Laptop extends Product implements Serializable {
 
     @Override
     public String toString() {
-        return getType() + " " + getName() + " " + getCost() + " " + videoCard;
+        return getType() + " " + getName() + " " + getCost() + " " + getCount() + " " + videoCard;
     }
 
     @Override
     public String info() {
-        return getId() + ")  " + getType() + " " + getName() + '\n' + "  Price:" + getCost() + ", Video card:" + videoCard;
+        return getId() + ") " + getType() + " " + getName() + ", Price:" + getCost() + ", Count:" + getCount() + ", Video card:" + videoCard;
     }
 }

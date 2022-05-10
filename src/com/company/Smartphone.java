@@ -23,11 +23,11 @@ public class Smartphone extends Product implements Serializable {
 
     @Override
     public String toString() {
-        return getType() + " " + getName() + " " + getCost() + " " + numberSIM;
+        return getType() + " " + getName() + " " + getCost() + " " + getCount() + " " + numberSIM;
     }
 
     @Override
     public String info() {
-        return getId() + ")  " + getType() + " " + getName() + '\n' + "  Price:" + getCost() + ", Number of SIM cards:" + numberSIM;
+        return getId() + ") " + getType() + " " + getName() + ", Price:" + getCost() + ", Count:" + getCount() + ", Number of SIM cards:" + numberSIM;
     }
 }
