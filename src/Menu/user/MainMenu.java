@@ -100,8 +100,9 @@ public class MainMenu extends Container {
                     String sql = "select * from  customer where login='"  + loginField.getText() + "' and password='" + passwordField.getText() +  "' ";
                     ResultSet rs = stmt.executeQuery(sql);
 
-                    PackageData pd2 = new PackageData("Get Visitor", loginField.getText());
+                    PackageData pd2 = new PackageData("Get Customer", loginField.getText());
                     Main.connect(pd2);
+
 
                     if(rs.next()){
                         name = rs.getString("name");

@@ -34,7 +34,6 @@ public class UserMenu extends Container {
         basket.setHorizontalAlignment(JLabel.CENTER);
         add(basket);
 
-
         textArea = new JTextArea();
         textArea.setEditable(false);
         textArea.setBounds(70, 200, 360, 170);
