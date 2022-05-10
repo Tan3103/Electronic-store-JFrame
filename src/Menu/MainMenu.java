@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import static DataBase.DBManager.connection;
-
 public class MainMenu extends Container {
     public MainMenu(){
         setSize(500, 500);
@@ -43,8 +42,6 @@ public class MainMenu extends Container {
         exitButton.setBounds(100, 250, 300, 40);
         add(exitButton);
 
-
-
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,12 +74,6 @@ public class MainMenu extends Container {
                 passwordField.setText(null);
             }
         });
-
-
-
-
-
-
 
         singButton.addActionListener(new ActionListener() {
             @Override

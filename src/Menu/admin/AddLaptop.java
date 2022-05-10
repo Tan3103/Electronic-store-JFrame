@@ -2,6 +2,7 @@ package Menu.admin;
 import DataBase.PackageData;
 import Main.Main;
 import Main.MainFrame;
+import com.company.Laptop;
 import com.company.PhotoCamera;
 import javax.swing.*;
 import java.awt.*;
@@ -75,11 +76,11 @@ public class AddLaptop extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    PhotoCamera newPercussion = new PhotoCamera(null, (String)typeField.getSelectedItem(), nameField.getText(),
+                    Laptop newLaptop = new Laptop(null, (String)typeField.getSelectedItem(), nameField.getText(),
                             Integer.parseInt(costField.getText()), Integer.parseInt(countField.getText()),
                             videoCardField.getText());
 
-                    PackageData packageData = new PackageData("ADD L", newPercussion);
+                    PackageData packageData = new PackageData("ADD L", newLaptop);
                     Main.connect(packageData);
                 }catch (Exception a){
                     a.printStackTrace();

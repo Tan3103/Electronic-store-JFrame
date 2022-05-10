@@ -75,11 +75,11 @@ public class AddSmartphone extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Smartphone newProduct = new Smartphone(null, (String) typeField.getSelectedItem(), nameField.getText(),
+                    Smartphone newSmartphone = new Smartphone(null, (String) typeField.getSelectedItem(), nameField.getText(),
                             Integer.parseInt(costField.getText()), Integer.parseInt(countField.getText()),
                             Integer.parseInt(numberSIMField.getText()));
 
-                    PackageData packageData = new PackageData("ADD S", newProduct);
+                    PackageData packageData = new PackageData("ADD S", newSmartphone);
                     Main.connect(packageData);
 
                     nameField.setText(null);

@@ -124,11 +124,11 @@ public class DBManager {
                 Integer id = resultSet.getInt("id");
                 String type = resultSet.getString("type");
                 String name = resultSet.getString("name");
-                int price = resultSet.getInt("price");
+                int cost = resultSet.getInt("cost");
                 int count = resultSet.getInt("count");
                 int numberSIM = resultSet.getInt("numberSIM");
 
-                smartphoneList.add(new Smartphone(id, type, name, price, count, numberSIM));
+                smartphoneList.add(new Smartphone(id, type, name, cost, count, numberSIM));
             }
             statement.close();
         }catch (Exception e){
@@ -147,11 +147,11 @@ public class DBManager {
                 Integer id = resultSet.getInt("id");
                 String type = resultSet.getString("type");
                 String name = resultSet.getString("name");
-                int price = resultSet.getInt("price");
+                int cost = resultSet.getInt("cost");
                 int count = resultSet.getInt("count");
                 String videoCard = resultSet.getString("videoCard");
 
-                laptopList.add(new Laptop(id, type, name, price, count, videoCard));
+                laptopList.add(new Laptop(id, type, name, cost, count, videoCard));
             }
             statement.close();
         }catch (Exception e){
@@ -170,11 +170,11 @@ public class DBManager {
                 Integer id = resultSet.getInt("id");
                 String type = resultSet.getString("type");
                 String name = resultSet.getString("name");
-                int price = resultSet.getInt("price");
+                int cost = resultSet.getInt("cost");
                 int count = resultSet.getInt("count");
                 String typeAutofocus = resultSet.getString("typeAutofocus");
 
-                percussionList.add(new PhotoCamera(id,  type, name, price, count, typeAutofocus));
+                percussionList.add(new PhotoCamera(id,  type, name, cost, count, typeAutofocus));
             }
             statement.close();
         }catch (Exception e){

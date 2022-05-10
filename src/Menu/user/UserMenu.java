@@ -18,10 +18,6 @@ public class UserMenu extends Container {
         findButton.setBounds(100, 150, 300, 40);
         add(findButton);
 
-        JButton purchasedGoodsButton = new JButton("Purchased goods");
-        purchasedGoodsButton.setBounds(100, 250, 300, 40);
-        add(purchasedGoodsButton);
-
         JButton backButton = new JButton("Back to menu");
         backButton.setBounds(100, 250, 300, 40);
         add(backButton);
@@ -39,14 +35,6 @@ public class UserMenu extends Container {
             public void actionPerformed(ActionEvent e) {
                 MainFrame.userMenu.setVisible(false);
                 MainFrame.findMenu.setVisible(true);
-            }
-        });
-
-        purchasedGoodsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MainFrame.userMenu.setVisible(false);
-                //MainFrame.purchasedGoods.setVisible(true);
             }
         });
 

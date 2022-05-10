@@ -13,7 +13,6 @@ public class PackageData implements Serializable {
     private PhotoCamera photoCamera;
     private Smartphone smartphone;
 
-
     private ArrayList<Customer> customers;
     private ArrayList<Smartphone> smartphones;
     private ArrayList<Laptop> laptops;
@@ -104,8 +103,6 @@ public class PackageData implements Serializable {
         this.smartphones = smartphones;
     }
 
-
-
     public Smartphone getSmartphone() {
         return smartphone;
     }
@@ -117,8 +114,6 @@ public class PackageData implements Serializable {
     public ArrayList<Smartphone> getSmartphones() {
         return smartphones;
     }
-
-
 
     public Laptop getLaptop() {
         return laptop;

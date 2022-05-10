@@ -3,6 +3,7 @@ import DataBase.PackageData;
 import com.company.Laptop;
 import Main.Main;
 import Main.MainFrame;
+import com.company.PhotoCamera;
 
 import javax.swing.*;
 import java.awt.*;
@@ -76,11 +77,11 @@ public class AddPhotoCamera extends Container {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    Laptop newKeyboard = new Laptop(null, (String)typeField.getSelectedItem(), nameField.getText(),
+                    PhotoCamera newPhotoCamera = new PhotoCamera(null, (String)typeField.getSelectedItem(), nameField.getText(),
                             Integer.parseInt(costField.getText()), Integer.parseInt(countField.getText()),
                             typeAutofocusField.getText());
 
-                    PackageData packageData = new PackageData("ADD P", newKeyboard);
+                    PackageData packageData = new PackageData("ADD P", newPhotoCamera);
                     Main.connect(packageData);
                 }catch (Exception a){
                     a.printStackTrace();

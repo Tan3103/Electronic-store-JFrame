@@ -12,29 +12,29 @@ public class AddProduct extends Container {
         setSize(500, 500);
         setLayout(null);
 
-        JButton guitarsButton = new JButton("List of Guitars");
-        guitarsButton.setBounds(70, 50, 275, 25);
-        add(guitarsButton);
+        JButton smartphoneButton = new JButton("Smartphone");
+        smartphoneButton.setBounds(70, 50, 275, 25);
+        add(smartphoneButton);
 
-        JButton addGuitarsButton = new JButton("Add");
-        addGuitarsButton.setBounds(355, 50, 75, 25);
-        add(addGuitarsButton);
+        JButton addSmartphoneButton = new JButton("Add");
+        addSmartphoneButton.setBounds(355, 50, 75, 25);
+        add(addSmartphoneButton);
 
-        JButton keyboardButton = new JButton("List of Keyboard instruments");
-        keyboardButton.setBounds(70, 80, 275, 25);
-        add(keyboardButton);
+        JButton laptopButton = new JButton("Laptop");
+        laptopButton.setBounds(70, 80, 275, 25);
+        add(laptopButton);
 
-        JButton addKeyboardButton = new JButton("Add");
-        addKeyboardButton.setBounds(355, 80, 75, 25);
-        add(addKeyboardButton);
+        JButton addLaptopButton = new JButton("Add");
+        addLaptopButton.setBounds(355, 80, 75, 25);
+        add(addLaptopButton);
 
-        JButton percussionButton = new JButton("List of Percussion instruments");
-        percussionButton.setBounds(70, 110, 275, 25);
-        add(percussionButton);
+        JButton photoCameraButton = new JButton("Photo camera");
+        photoCameraButton.setBounds(70, 110, 275, 25);
+        add(photoCameraButton);
 
-        JButton addPercussionButton = new JButton("Add");
-        addPercussionButton.setBounds(355, 110, 75, 25);
-        add(addPercussionButton);
+        JButton addPhotoCameraButton = new JButton("Add");
+        addPhotoCameraButton.setBounds(355, 110, 75, 25);
+        add(addPhotoCameraButton);
 
         textArea = new JTextArea();
         textArea.setBounds(70, 150, 360, 200);
@@ -48,32 +48,32 @@ public class AddProduct extends Container {
         backButton.setBounds(70, 360, 360, 30);
         add(backButton);
 
-        guitarsButton.addActionListener(new ActionListener() {
+        smartphoneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackageData pd = new PackageData("LIST Guitar");
+                PackageData pd = new PackageData("LIST S");
                 Main.connect(pd);
             }
         });
 
-        keyboardButton.addActionListener(new ActionListener() {
+        laptopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackageData pd = new PackageData("LIST Keyboard");
+                PackageData pd = new PackageData("LIST L");
                 Main.connect(pd);
             }
         });
 
-        percussionButton.addActionListener(new ActionListener() {
+        photoCameraButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(null);
 
-                PackageData pd = new PackageData("LIST Percussion");
+                PackageData pd = new PackageData("LIST P");
                 Main.connect(pd);
             }
         });
@@ -86,7 +86,7 @@ public class AddProduct extends Container {
             }
         });
 
-        addGuitarsButton.addActionListener(new ActionListener() {
+        addSmartphoneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main.frame.addProduct.setVisible(false);
@@ -94,7 +94,7 @@ public class AddProduct extends Container {
             }
         });
 
-        addKeyboardButton.addActionListener(new ActionListener() {
+        addLaptopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main.frame.addProduct.setVisible(false);
@@ -102,7 +102,7 @@ public class AddProduct extends Container {
             }
         });
 
-        addPercussionButton.addActionListener(new ActionListener() {
+        addPhotoCameraButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main.frame.addProduct.setVisible(false);

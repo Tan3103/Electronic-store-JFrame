@@ -6,7 +6,6 @@ import javax.swing.*;
 
 public class MainFrame extends JFrame {
     public static MainMenu menu;
-    public static LoginUser loginUser;
     public static SingUser singUser;
     public static UserMenu userMenu;
     public static AdminMenu adminMenu;
@@ -28,11 +27,6 @@ public class MainFrame extends JFrame {
         menu = new MainMenu();
         menu.setLocation(0, 0);
         add(menu);
-
-        loginUser = new LoginUser();
-        loginUser.setLocation(0, 0);
-        loginUser.setVisible(false);
-        add(loginUser);
 
         singUser = new SingUser();
         singUser.setLocation(0, 0);

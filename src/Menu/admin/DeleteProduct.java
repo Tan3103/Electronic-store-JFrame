@@ -13,15 +13,15 @@ public class DeleteProduct extends Container {
         setSize(500, 500);
         setLayout(null);
 
-        JButton guitarsButton = new JButton("List of smartphone");
+        JButton guitarsButton = new JButton("Smartphone");
         guitarsButton.setBounds(70, 40, 360, 25);
         add(guitarsButton);
 
-        JButton keyboardButton = new JButton("List of laptop");
+        JButton keyboardButton = new JButton("Laptop");
         keyboardButton.setBounds(70, 70, 360, 25);
         add(keyboardButton);
 
-        JButton percussionButton = new JButton("List of photo camera");
+        JButton percussionButton = new JButton("Photo camera");
         percussionButton.setBounds(70, 100, 360, 25);
         add(percussionButton);
 

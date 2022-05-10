@@ -14,15 +14,13 @@ public class Main {
     public static MainFrame frame;
     public static void connect(PackageData pd){
         try{
-            Socket socket = new Socket("127.0.0.1", 4999);
+            Socket socket = new Socket("127.0.0.1", 4855);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
 
-            if(pd.getOperationType().equals("ADD")){
-                outputStream.writeObject(pd);
-            }
-            else if(pd.getOperationType().equals("ADD S") || pd.getOperationType().equals("ADD L") ||
-                    pd.getOperationType().equals("ADD P")){
+            if(pd.getOperationType().equals("ADD") || pd.getOperationType().equals("ADD S") || pd.getOperationType().equals("ADD L") ||
+                    pd.getOperationType().equals("ADD P") || pd.getOperationType().equals("Delete Customer") ||
+                    pd.getOperationType().equals("Delete Product") || pd.getOperationType().equals("Update Product")){
                 outputStream.writeObject(pd);
             }
             else if(pd.getOperationType().equals("LIST")){
@@ -75,30 +73,26 @@ public class Main {
                 DeleteProduct.textArea.append(s);
                 CatalogMenu.textArea.append(s);
             }
-            else if(pd.getOperationType().equals("Delete Customer") || pd.getOperationType().equals("Delete Product") ||
-                    pd.getOperationType().equals("Update Product")){
-                outputStream.writeObject(pd);
-            }
             else if(pd.getOperationType().equals("Find S")){
                  outputStream.writeObject(pd);
                  PackageData infoFromServer = (PackageData)inputStream.readObject();
-                 String guitar = infoFromServer.getFind();
+                 String smartphone = infoFromServer.getFind();
 
-                FindMenu.textArea.append(guitar);
+                 FindMenu.textArea.append(smartphone);
             }
             else if(pd.getOperationType().equals("Find L")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
-                String guitar = infoFromServer.getFind();
+                String laptop = infoFromServer.getFind();
 
-                FindMenu.textArea.append(guitar);
+                FindMenu.textArea.append(laptop);
             }
             else if(pd.getOperationType().equals("Find P")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer = (PackageData)inputStream.readObject();
-                String guitar = infoFromServer.getFind();
+                String photoCamera = infoFromServer.getFind();
 
-                FindMenu.textArea.append(guitar);
+                FindMenu.textArea.append(photoCamera);
             }
             inputStream.close();
             outputStream.close();

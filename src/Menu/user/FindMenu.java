@@ -21,16 +21,16 @@ public class FindMenu extends Container {
         nameProductField.setBounds(190, 125, 240, 25);
         add(nameProductField);
 
-        JButton findSmartphoneButton = new JButton("FIND");
-        findSmartphoneButton.setBounds(120, 155, 100, 25);
+        JButton findSmartphoneButton = new JButton("FIND S");
+        findSmartphoneButton.setBounds(100, 155, 100, 25);
         add(findSmartphoneButton);
 
-        JButton findLaptopButton = new JButton("FIND");
-        findLaptopButton.setBounds(120, 155, 100, 25);
+        JButton findLaptopButton = new JButton("FIND L");
+        findLaptopButton.setBounds(200, 155, 100, 25);
         add(findLaptopButton);
 
-        JButton findPhotoCameraButton = new JButton("FIND");
-        findPhotoCameraButton.setBounds(120, 155, 100, 25);
+        JButton findPhotoCameraButton = new JButton("FIND P");
+        findPhotoCameraButton.setBounds(300, 155, 100, 25);
         add(findPhotoCameraButton);
 
         ///////////////////////////////////////////
