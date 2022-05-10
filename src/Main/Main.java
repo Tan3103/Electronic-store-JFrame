@@ -1,6 +1,6 @@
 package Main;
 import DataBase.PackageData;
-import Menu.user.MainMenu;
+import Menu.MainMenu;
 import Menu.admin.AddProduct;
 import Menu.admin.DeleteProduct;
 import Menu.admin.DeleteUser;
@@ -15,13 +15,14 @@ public class Main {
     public static MainFrame frame;
     public static void connect(PackageData pd){
         try{
-            Socket socket = new Socket("127.0.0.1", 4855);
+            Socket socket = new Socket("127.0.0.1", 5000);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
 
             if(pd.getOperationType().equals("ADD") || pd.getOperationType().equals("ADD S") || pd.getOperationType().equals("ADD L") ||
                     pd.getOperationType().equals("ADD P") || pd.getOperationType().equals("Delete Customer") ||
-                    pd.getOperationType().equals("Delete Product") || pd.getOperationType().equals("Update Product") || pd.getOperationType().equals("ADD Basket")){
+                    pd.getOperationType().equals("Delete Product") || pd.getOperationType().equals("Update Product")/* || pd.getOperationType().equals("ADD Basket")*/
+                    ){
                 outputStream.writeObject(pd);
             }
             else if(pd.getOperationType().equals("LIST")){
@@ -110,6 +111,7 @@ public class Main {
 
                 FindMenu.textArea.append(s);
             }
+
             else if(pd.getOperationType().equals("Get Visitor")){
                 outputStream.writeObject(pd);
 

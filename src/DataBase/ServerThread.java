@@ -106,16 +106,22 @@ public class ServerThread extends Thread  {
                     outputStream.writeObject(toGuitar);
                     break;
                 }
-                else if(packageData.getOperationType().equals("Get Customer")){
+
+                else if(packageData.getOperationType().equals("Get Visitor")){
                     Customer customer = manager.getVisitor(packageData.getFind());
                     PackageData toPercussion = new PackageData(customer);
                     outputStream.writeObject(toPercussion);
                     break;
                 }
+
+
+                /*
                 else if(packageData.getOperationType().equals("ADD Basket")){
                     manager.updateBasket((packageData.getProduct_id()), packageData.getCustomer_id());
                     break;
                 }
+
+                 */
             }
             inputStream.close();
             outputStream.close();

@@ -1,4 +1,4 @@
-package Menu.user;
+package Menu;
 import DataBase.DBManager;
 import DataBase.PackageData;
 import Main.Main;
@@ -87,11 +87,7 @@ public class MainMenu extends Container {
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (loginField.getText().equals("admin") && passwordField.getText().equals("password")) {
-                    MainFrame.menu.setVisible(false);
-                    MainFrame.adminMenu.setVisible(true);
-                    JOptionPane.showInternalMessageDialog(null, "WELCOME ADMIN");
-                }
+
 
                 try {
                     DBManager result = new DBManager();
@@ -110,6 +106,11 @@ public class MainMenu extends Container {
                         MainFrame.menu.setVisible(false);
                         MainFrame.userMenu.setVisible(true);
                         JOptionPane.showInternalMessageDialog(null, "WELCOME");
+                    }
+                    if (loginField.getText().equals("admin") && passwordField.getText().equals("password")) {
+                        MainFrame.menu.setVisible(false);
+                        MainFrame.adminMenu.setVisible(true);
+                        JOptionPane.showInternalMessageDialog(null, "WELCOME ADMIN");
                     }
                     else{
                         JOptionPane.showInternalMessageDialog(null, "LOGIN OR PASSWORD WRONG");
