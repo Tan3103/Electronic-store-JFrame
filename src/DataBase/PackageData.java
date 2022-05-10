@@ -6,6 +6,8 @@ import java.util.ArrayList;
 public class PackageData implements Serializable {
     private String operationType;
     private int id;
+    private Integer customer_id;
+    private Integer product_id;
     private String find;
 
     private Customer customer;
@@ -22,6 +24,11 @@ public class PackageData implements Serializable {
     public PackageData() {
     }
 
+    public PackageData(String operationType, Integer customer_id, Integer product_id) {
+        this.operationType = operationType;
+        this.customer_id = customer_id;
+        this.product_id = product_id;
+    }
 
     public PackageData(String operationType, Smartphone smartphone) {
         this.operationType = operationType;

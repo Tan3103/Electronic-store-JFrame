@@ -1,12 +1,18 @@
 package Menu;
 
+import DataBase.DBManager;
 import DataBase.PackageData;
 import Main.Main;
+import com.company.Checker;
 import com.company.Customer;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import static DataBase.DBManager.connection;
 
 public class SingUser extends Container {
     public SingUser(){
@@ -18,6 +24,7 @@ public class SingUser extends Container {
         add(label);
 
         JLabel nameLabel = new JLabel("NAME:");
+        nameLabel.setFont(new Font("Courier New", Font.PLAIN, 14));
         nameLabel.setBounds(100, 50, 100, 30);
         add(nameLabel);
 
@@ -26,6 +33,7 @@ public class SingUser extends Container {
         add(nameField);
 
         JLabel surnameLabel = new JLabel("SURNAME:");
+        surnameLabel.setFont(new Font("Courier New", Font.PLAIN, 14));
         surnameLabel.setBounds(100, 100, 100, 30);
         add(surnameLabel);
 
@@ -34,6 +42,7 @@ public class SingUser extends Container {
         add(surnameField);
 
         JLabel loginLabel = new JLabel("LOGIN:");
+        loginLabel.setFont(new Font("Courier New", Font.PLAIN, 14));
         loginLabel.setBounds(100, 150, 100, 30);
         add(loginLabel);
 
@@ -42,31 +51,78 @@ public class SingUser extends Container {
         add(loginField);
 
         JLabel passwordLabel = new JLabel("PASSWORD:");
+        passwordLabel.setFont(new Font("Courier New", Font.PLAIN, 14));
         passwordLabel.setBounds(100, 200, 100, 30);
         add(passwordLabel);
 
+        JLabel tip = new JLabel("(password must have digit, one lowercase and one capital letter)");
+        tip.setFont(new Font("Serif", Font.BOLD , 12));
+        tip.setBounds(100, 275, 400, 30);
+        add(tip);
+
         JTextField passwordField = new JTextField();
         passwordField.setBounds(200, 200, 200, 30);
-
         add(passwordField);
 
+        JLabel passwordLabel2 = new JLabel("REPEAT:");
+        passwordLabel2.setFont(new Font("Courier New", Font.PLAIN, 12));
+        passwordLabel2.setBounds(100, 250, 200, 30);
+        add(passwordLabel2);
+
+        JTextField passwordField2 = new JTextField();
+        passwordField2.setBounds(200, 250, 200, 30);
+        add(passwordField2);
+
         JButton singButton = new JButton("Sing up");
-        singButton.setBounds(100, 250, 140, 40);
+        singButton.setFont(new Font("Verdana", Font.BOLD, 12));
+        singButton.setBounds(100, 325, 140, 40);
         add(singButton);
 
         JButton backButton = new JButton("Back to menu");
-        backButton.setBounds(250, 250, 150, 40);
+        backButton.setFont(new Font("Verdana", Font.BOLD, 12));
+        backButton.setBounds(250, 325, 150, 40);
         add(backButton);
 
         singButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
+                    if(passwordField.getText().equals(passwordField2.getText())) {
+                        DBManager result = new DBManager();
+                        result.connect();
+                        Statement stmt = connection.createStatement();
+                        String sql = "select * from  customer where login='" + loginField.getText() + "'";
+                        ResultSet rs = stmt.executeQuery(sql);
+                        if (rs.next()) {
+                            JOptionPane.showInternalMessageDialog(null, "USER ALREADY EXIST");
+                            nameField.setText(null);
+                            surnameField.setText(null);
+                            loginField.setText(null);
+                            passwordField.setText(null);
 
-                        Customer new_customer = new Customer(null, loginField.getText(), passwordField.getText(), nameField.getText(), surnameField.getText());
-                        PackageData packageData = new PackageData("ADD", new_customer);
-                        Main.connect(packageData);
-                        JOptionPane.showInternalMessageDialog(null,"SUCCESSFUL");
+                        } else {
+
+
+                            Checker checker = new Checker();
+                            if (checker.checkerPassword(passwordField.getText())) {
+
+                                Customer new_customer = new Customer(null, loginField.getText(), passwordField.getText(), nameField.getText(), surnameField.getText());
+                                PackageData packageData = new PackageData("ADD", new_customer);
+                                Main.connect(packageData);
+                                JOptionPane.showInternalMessageDialog(null, "SUCCESSFUL");
+                            } else {
+                                JOptionPane.showInternalMessageDialog(null, "INVALID PASSWORD");
+
+                                nameField.setText(null);
+                                surnameField.setText(null);
+                                loginField.setText(null);
+                                passwordField.setText(null);
+                            }
+                        }
+                    }
+                    else{
+                        JOptionPane.showInternalMessageDialog(null, "PASSWORDS DON'T SAME");
+                    }
 
 
                 }catch (Exception a){

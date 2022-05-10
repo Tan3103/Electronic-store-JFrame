@@ -20,7 +20,7 @@ public class MainFrame extends JFrame {
 
     public MainFrame(){
         setSize(500, 500);
-        setTitle("Musical Instrument Store");
+        setTitle("Electronic Store");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(null);
 

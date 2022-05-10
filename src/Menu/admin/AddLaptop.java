@@ -17,6 +17,7 @@ public class AddLaptop extends Container {
         String[] typePercussion = {"Acer", "Asus", "Lenovo", "Macbook", "Neo"};
 
         JLabel typeLabel = new JLabel("Type:");
+        typeLabel.setFont(new Font("Serif", Font.PLAIN, 14));
         typeLabel.setBounds(75, 75, 125, 25);
         add(typeLabel);
 
@@ -25,6 +26,7 @@ public class AddLaptop extends Container {
         add(typeField);
 
         JLabel nameLabel = new JLabel("Name:");
+        nameLabel.setFont(new Font("Serif", Font.PLAIN, 14));
         nameLabel.setBounds(75, 110, 125, 25);
         add(nameLabel);
 
@@ -33,6 +35,7 @@ public class AddLaptop extends Container {
         add(nameField);
 
         JLabel videoCardLabel = new JLabel("Type video card:");
+        videoCardLabel.setFont(new Font("Serif", Font.PLAIN, 14));
         videoCardLabel.setBounds(75, 145, 125, 25);
         add(videoCardLabel);
 
@@ -41,6 +44,7 @@ public class AddLaptop extends Container {
         add(videoCardField);
 
         JLabel costLabel = new JLabel("Product price:");
+        costLabel.setFont(new Font("Serif", Font.PLAIN, 14));
         costLabel.setBounds(75, 215, 125, 25);
         add(costLabel);
 
@@ -49,6 +53,7 @@ public class AddLaptop extends Container {
         add(costField);
 
         JLabel countLabel = new JLabel("Number of products:");
+        countLabel.setFont(new Font("Serif", Font.PLAIN, 14));
         countLabel.setBounds(75, 250, 125, 25);
         add(countLabel);
 
@@ -57,10 +62,12 @@ public class AddLaptop extends Container {
         add(countField);
 
         JButton addButton = new JButton("Add product");
+        addButton.setFont(new Font("Verdana", Font.BOLD, 12));
         addButton.setBounds(75, 320, 170, 30);
         add(addButton);
 
         JButton backButton = new JButton("Back to menu");
+        backButton.setFont(new Font("Verdana", Font.BOLD, 12));
         backButton.setBounds(255, 320, 170, 30);
         add(backButton);
 

@@ -217,6 +217,24 @@ public class DBManager {
             e.printStackTrace();
         }
     }
+
+//////////////////////////////////
+
+
+    public void updateBasket(Integer product_id, Integer customer_id) {
+        try{
+            PreparedStatement statement = connection.prepareStatement("" +
+                    "INSERT INTO backet (id, customer_id, product_id ) " +
+                    "VALUES (NULL, ?, ?)");
+            statement.setInt(1, customer_id);
+            statement.setInt(2, product_id);
+            statement.executeUpdate();
+
+            statement.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public ArrayList<Smartphone> findSmartphone(String findName){

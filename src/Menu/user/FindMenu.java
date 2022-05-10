@@ -13,46 +13,53 @@ public class FindMenu extends Container {
         setSize(500, 500);
         setLayout(null);
 
-        JLabel nameProductLabel = new JLabel("NAME:");
-        nameProductLabel.setBounds(70, 125, 120, 25);
+        JLabel nameProductLabel = new JLabel("FIND BY NAME:");
+        nameProductLabel.setFont(new Font("Serif", Font.BOLD , 12));
+        nameProductLabel.setBounds(70, 50, 175, 25);
         add(nameProductLabel);
 
         JTextField nameProductField = new JTextField();
-        nameProductField.setBounds(190, 125, 240, 25);
+        nameProductField.setBounds(190, 50, 240, 25);
         add(nameProductField);
 
-        JButton findSmartphoneButton = new JButton("FIND S");
-        findSmartphoneButton.setBounds(100, 155, 100, 25);
+        JButton findSmartphoneButton = new JButton("SMARTPHONE");
+        findSmartphoneButton.setFont(new Font("Verdana", Font.BOLD , 12));
+        findSmartphoneButton.setBounds(25, 100, 130, 25);
         add(findSmartphoneButton);
 
-        JButton findLaptopButton = new JButton("FIND L");
-        findLaptopButton.setBounds(200, 155, 100, 25);
+        JButton findLaptopButton = new JButton("LAPTOP");
+        findLaptopButton.setFont(new Font("Verdana", Font.BOLD , 12));
+        findLaptopButton.setBounds(175, 100, 130, 25);
         add(findLaptopButton);
 
-        JButton findPhotoCameraButton = new JButton("FIND P");
-        findPhotoCameraButton.setBounds(300, 155, 100, 25);
+        JButton findPhotoCameraButton = new JButton("CAMERA");
+        findPhotoCameraButton.setFont(new Font("Verdana", Font.BOLD , 12));
+        findPhotoCameraButton.setBounds(325, 100, 130, 25);
         add(findPhotoCameraButton);
 
         ///////////////////////////////////////////
 
         textArea = new JTextArea();
-        textArea.setBounds(70, 190, 360, 140);
+        textArea.setBounds(70, 150, 360, 200);
         add(textArea);
 
         JLabel label = new JLabel("Enter the number of the item you want to buy");
-        label.setBounds(70, 340, 270, 25);
+        label.setFont(new Font("Serif", Font.BOLD , 12));
+        label.setBounds(70, 375, 270, 25);
         add(label);
 
         JTextField numberField = new JTextField();
-        numberField.setBounds(350, 340, 80, 25);
+        numberField.setBounds(350, 375, 80, 25);
         add(numberField);
 
         JButton backButton = new JButton("Back to menu");
-        backButton.setBounds(255, 370, 175, 25);
+        backButton.setFont(new Font("Verdana", Font.BOLD , 12));
+        backButton.setBounds(255, 400, 175, 25);
         add(backButton);
 
         JButton buyButton = new JButton("BUY");
-        buyButton.setBounds(70, 370, 175, 25);
+        buyButton.setFont(new Font("Verdana", Font.BOLD , 12));
+        buyButton.setBounds(70, 400, 175, 25);
         add(buyButton);
 
 

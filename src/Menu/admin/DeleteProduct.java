@@ -30,18 +30,22 @@ public class DeleteProduct extends Container {
         add(textArea);
 
         JLabel label = new JLabel("Enter the number of the item you want to delete:");
+        label.setFont(new Font("Serif", Font.PLAIN, 14));
         label.setBounds(70, 340, 280, 25);
         add(label);
 
         JTextField numberField = new JTextField();
+        numberField.setFont(new Font("Verdana", Font.BOLD , 12));
         numberField.setBounds(360, 340, 70, 25);
         add(numberField);
 
         JButton deleteButton = new JButton("Delete");
+        deleteButton.setFont(new Font("Verdana", Font.BOLD , 12));
         deleteButton.setBounds(70, 375, 175, 25);
         add(deleteButton);
 
         JButton backButton = new JButton("Back to menu");
+        backButton.setFont(new Font("Verdana", Font.BOLD , 12));
         backButton.setBounds(255, 375, 175, 25);
         add(backButton);
 

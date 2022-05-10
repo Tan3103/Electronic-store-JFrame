@@ -13,26 +13,32 @@ public class AddProduct extends Container {
         setLayout(null);
 
         JButton smartphoneButton = new JButton("Smartphone");
+        smartphoneButton.setFont(new Font("Verdana", Font.BOLD , 12));
         smartphoneButton.setBounds(70, 50, 275, 25);
         add(smartphoneButton);
 
         JButton addSmartphoneButton = new JButton("Add");
+        addSmartphoneButton.setFont(new Font("Verdana", Font.BOLD , 12));
         addSmartphoneButton.setBounds(355, 50, 75, 25);
         add(addSmartphoneButton);
 
         JButton laptopButton = new JButton("Laptop");
+        laptopButton.setFont(new Font("Verdana", Font.BOLD , 12));
         laptopButton.setBounds(70, 80, 275, 25);
         add(laptopButton);
 
         JButton addLaptopButton = new JButton("Add");
+        addLaptopButton.setFont(new Font("Verdana", Font.BOLD , 12));
         addLaptopButton.setBounds(355, 80, 75, 25);
         add(addLaptopButton);
 
         JButton photoCameraButton = new JButton("Photo camera");
+        photoCameraButton.setFont(new Font("Verdana", Font.BOLD , 12));
         photoCameraButton.setBounds(70, 110, 275, 25);
         add(photoCameraButton);
 
         JButton addPhotoCameraButton = new JButton("Add");
+        addPhotoCameraButton.setFont(new Font("Verdana", Font.BOLD , 12));
         addPhotoCameraButton.setBounds(355, 110, 75, 25);
         add(addPhotoCameraButton);
 
@@ -45,6 +51,7 @@ public class AddProduct extends Container {
         add(label);
 
         JButton backButton = new JButton("Back to menu");
+        backButton.setFont(new Font("Verdana", Font.BOLD , 12));
         backButton.setBounds(70, 360, 360, 30);
         add(backButton);
 

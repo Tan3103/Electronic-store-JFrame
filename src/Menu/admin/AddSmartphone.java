@@ -16,6 +16,7 @@ public class AddSmartphone extends Container {
         String[] typeGuitar = {"Huawei", "Redmi", "Apple", "Vivo", "Samsung", "Oppo"};
 
         JLabel typeLabel = new JLabel("Type:");
+        typeLabel.setFont(new Font("Serif", Font.PLAIN, 14));
         typeLabel.setBounds(75, 75, 125, 25);
         add(typeLabel);
 
@@ -24,6 +25,7 @@ public class AddSmartphone extends Container {
         add(typeField);
 
         JLabel nameLabel = new JLabel("Name:");
+        nameLabel.setFont(new Font("Serif", Font.PLAIN, 14));
         nameLabel.setBounds(75, 110, 125, 25);
         add(nameLabel);
 
@@ -32,6 +34,7 @@ public class AddSmartphone extends Container {
         add(nameField);
 
         JLabel numberSIMLabel = new JLabel("Number of SIM:");
+        numberSIMLabel.setFont(new Font("Serif", Font.PLAIN, 14));
         numberSIMLabel.setBounds(75, 145, 125, 25);
         add(numberSIMLabel);
 
@@ -40,6 +43,7 @@ public class AddSmartphone extends Container {
         add(numberSIMField);
 
         JLabel costLabel = new JLabel("Product price:");
+        costLabel.setFont(new Font("Serif", Font.PLAIN, 14));
         costLabel.setBounds(75, 215, 125, 25);
         add(costLabel);
 
@@ -48,6 +52,7 @@ public class AddSmartphone extends Container {
         add(costField);
 
         JLabel countLabel = new JLabel("Number of products:");
+        countLabel.setFont(new Font("Serif", Font.PLAIN, 14));
         countLabel.setBounds(75, 250, 125, 25);
         add(countLabel);
 
@@ -56,10 +61,12 @@ public class AddSmartphone extends Container {
         add(countField);
 
         JButton addButton = new JButton("Add product");
+        addButton.setFont(new Font("Verdana", Font.BOLD , 12));
         addButton.setBounds(75, 320, 170, 30);
         add(addButton);
 
         JButton backButton = new JButton("Back to menu");
+        backButton.setFont(new Font("Verdana", Font.BOLD , 12));
         backButton.setBounds(255, 320, 170, 30);
         add(backButton);
 

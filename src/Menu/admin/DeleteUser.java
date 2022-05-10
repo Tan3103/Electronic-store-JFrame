@@ -14,6 +14,7 @@ public class DeleteUser extends Container {
         setLayout(null);
 
         JButton listUserButton = new JButton("LIST");
+        listUserButton.setFont(new Font("Serif", Font.PLAIN, 14));
         listUserButton.setBounds(50, 60, 400, 30);
         add(listUserButton);
 
@@ -22,14 +23,17 @@ public class DeleteUser extends Container {
         add(textArea);
 
         JButton deleteProductButton = new JButton("Delete");
+        deleteProductButton.setFont(new Font("Serif", Font.PLAIN, 14));
         deleteProductButton.setBounds(50, 350, 195, 30);
         add(deleteProductButton);
 
         JButton backButton = new JButton("Back to menu");
+        backButton.setFont(new Font("Serif", Font.PLAIN, 14));
         backButton.setBounds(255, 350, 195, 30);
         add(backButton);
 
         JLabel label = new JLabel("Enter the number of the item you want to delete");
+        label.setFont(new Font("Serif", Font.PLAIN, 14));
         label.setBounds(75, 310, 270, 25);
         add(label);
 
