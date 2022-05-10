@@ -324,7 +324,7 @@ public class DBManager {
     public Customer getVisitor(String fname){
         Customer customer = new Customer();
         try{
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM customer WHERE name = '" + fname + "'");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM customer WHERE login = '" + fname + "'");
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()){
