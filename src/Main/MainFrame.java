@@ -82,6 +82,5 @@ public class MainFrame extends JFrame {
         addLaptop.setLocation(0, 0);
         addLaptop.setVisible(false);
         add(addLaptop);
-
     }
 }

@@ -20,8 +20,11 @@ public class PackageData implements Serializable {
     private ArrayList<Laptop> laptops;
     private ArrayList<PhotoCamera> photoCameras;
 
-
     public PackageData() {
+    }
+
+    public PackageData(Customer customer) {
+        this.customer = customer;
     }
 
     public PackageData(String operationType, Integer customer_id, Integer product_id) {
@@ -80,7 +83,6 @@ public class PackageData implements Serializable {
         return customer;
     }
 
-
     public void setOperationType(String operationType) {
         this.operationType = operationType;
     }
@@ -96,7 +98,6 @@ public class PackageData implements Serializable {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-
 
     public void setSmartphone(Smartphone smartphone) {
         this.smartphone = smartphone;
@@ -152,5 +153,21 @@ public class PackageData implements Serializable {
 
     public void setPhotoCameras(ArrayList<PhotoCamera> photoCameras) {
         this.photoCameras = photoCameras;
+    }
+
+    public Integer getCustomer_id() {
+        return customer_id;
+    }
+
+    public void setCustomer_id(Integer customer_id) {
+        this.customer_id = customer_id;
+    }
+
+    public Integer getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(Integer product_id) {
+        this.product_id = product_id;
     }
 }

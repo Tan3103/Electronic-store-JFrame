@@ -235,6 +235,23 @@ public class DBManager {
             e.printStackTrace();
         }
     }
+
+    public ArrayList<Product> getAllBasket(Integer idka){
+        ArrayList<Product> productList = new ArrayList<>();
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM backet WHERE customer_id = '" + idka + "'");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int name = resultSet.getInt("product_id");
+                productList.add(getProduct(name));
+            }
+            statement.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return productList;
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public ArrayList<Smartphone> findSmartphone(String findName){
@@ -324,6 +341,28 @@ public class DBManager {
             e.printStackTrace();
         }
         return customer;
+    }
+
+    public Product getProduct(Integer idka){
+        Product product = new Smartphone();
+        try{
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE id = '" + idka + "'");
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+                Integer id = resultSet.getInt("id");
+                String type = resultSet.getString("type");
+                String name = resultSet.getString("name");
+                int cost = resultSet.getInt("cost");
+                int count = resultSet.getInt("count");
+                product = new Smartphone(id, type, name, cost, count);
+            }
+
+            statement.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return product;
     }
 }
 

@@ -3,7 +3,6 @@ import DataBase.PackageData;
 import Main.Main;
 import Main.MainFrame;
 import com.company.Laptop;
-import com.company.PhotoCamera;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

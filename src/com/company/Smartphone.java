@@ -1,11 +1,14 @@
 package com.company;
-
 import java.io.Serializable;
 
 public class Smartphone extends Product implements Serializable {
     private int numberSIM;
 
     public Smartphone() {
+    }
+
+    public Smartphone(Integer id, String type, String name, int cost, int count) {
+        super(id, type, name, cost, count);
     }
 
     public Smartphone(Integer id, String type, String name, int cost, int count, int numberSIM) {

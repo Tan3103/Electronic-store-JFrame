@@ -1,7 +1,10 @@
 package Menu;
 import DataBase.DBManager;
+import DataBase.PackageData;
+import Main.Main;
 import Main.MainFrame;
 import Menu.user.UserMenu;
+import com.company.Customer;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -15,6 +18,7 @@ import static DataBase.DBManager.connection;
 public class MainMenu extends Container {
     public static String name;
     public static String surname;
+    public static Customer customer;
 
     public MainMenu(){
         setSize(500, 500);
@@ -95,6 +99,10 @@ public class MainMenu extends Container {
                     Statement stmt = connection.createStatement();
                     String sql = "select * from  customer where login='"  + loginField.getText() + "' and password='" + passwordField.getText() +  "' ";
                     ResultSet rs = stmt.executeQuery(sql);
+
+                    PackageData pd2 = new PackageData("Get Visitor", loginField.getText());
+                    Main.connect(pd2);
+
                     if(rs.next()){
                         name = rs.getString("name");
                         surname = rs.getString("surname");

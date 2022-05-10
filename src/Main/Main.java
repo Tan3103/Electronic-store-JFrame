@@ -1,5 +1,6 @@
 package Main;
 import DataBase.PackageData;
+import Menu.MainMenu;
 import Menu.admin.AddProduct;
 import Menu.admin.DeleteProduct;
 import Menu.admin.DeleteUser;
@@ -83,7 +84,7 @@ public class Main {
                     s += arrayListFromServer.get(i).info()+ "\n";
                 }
 
-                 FindMenu.textArea.append(s);
+                FindMenu.textArea.append(s);
             }
             else if(pd.getOperationType().equals("Find L")){
                 outputStream.writeObject(pd);
@@ -108,6 +109,13 @@ public class Main {
                 }
 
                 FindMenu.textArea.append(s);
+            }
+            else if(pd.getOperationType().equals("Get Visitor")){
+                outputStream.writeObject(pd);
+
+                PackageData infoFromServer = (PackageData)inputStream.readObject();
+                Customer customer = infoFromServer.getCustomer();
+                MainMenu.customer = customer;
             }
             inputStream.close();
             outputStream.close();

@@ -1,5 +1,4 @@
 package com.company;
-
 import java.io.Serializable;
 
 public class PhotoCamera extends Product implements Serializable {
