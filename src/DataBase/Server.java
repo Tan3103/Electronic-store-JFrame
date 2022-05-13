@@ -5,7 +5,7 @@ import java.net.Socket;
 public class Server {
     public static void main(String[] args){
         try{
-            ServerSocket serverSocket = new ServerSocket(5000);
+            ServerSocket serverSocket = new ServerSocket(6000);
             while(true){
                 System.out.println("................");
                 Socket socket = serverSocket.accept();

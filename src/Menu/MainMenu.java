@@ -87,11 +87,6 @@ public class MainMenu extends Container {
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (loginField.getText().equals("admin") && passwordField.getText().equals("password")) {
-                    MainFrame.menu.setVisible(false);
-                    MainFrame.adminMenu.setVisible(true);
-                    JOptionPane.showInternalMessageDialog(null, "WELCOME ADMIN");
-                }
 
                 try {
                     DBManager result = new DBManager();
@@ -102,8 +97,15 @@ public class MainMenu extends Container {
 
                     PackageData pd2 = new PackageData("Get Visitor", loginField.getText());
                     Main.connect(pd2);
+                    if (loginField.getText().equals("admin") && passwordField.getText().equals("password")) {
+                        MainFrame.menu.setVisible(false);
+                        MainFrame.adminMenu.setVisible(true);
+                        JOptionPane.showInternalMessageDialog(null, "WELCOME ADMIN");
+                    }
 
-                    if(rs.next()){
+                    else if (rs.next()){
+
+
                         name = rs.getString("name");
                         surname = rs.getString("surname");
                         UserMenu.centerLabel.setText("WELCOME " + name + " " + surname);

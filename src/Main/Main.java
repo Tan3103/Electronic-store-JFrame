@@ -16,7 +16,7 @@ public class Main {
     public static MainFrame frame;
     public static void connect(PackageData pd){
         try{
-            Socket socket = new Socket("127.0.0.1", 5000);
+            Socket socket = new Socket("127.0.0.1", 6000);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
 

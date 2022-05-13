@@ -13,17 +13,17 @@ public class CatalogMenu extends Container {
         setSize(500, 500);
         setLayout(null);
 
-        JButton guitarsButton = new JButton("Laptop");
+        JButton guitarsButton = new JButton("Smartphone");
         guitarsButton.setFont(new Font("Verdana", Font.BOLD, 12));
         guitarsButton.setBounds(70, 50, 360, 25);
         add(guitarsButton);
 
-        JButton keyboardButton = new JButton("Photo camera");
+        JButton keyboardButton = new JButton("Laptop");
         keyboardButton.setFont(new Font("Verdana", Font.BOLD, 12));
         keyboardButton.setBounds(70, 80, 360, 25);
         add(keyboardButton);
 
-        JButton percussionButton = new JButton("Smartphone");
+        JButton percussionButton = new JButton("Photo camera");
         percussionButton.setFont(new Font("Verdana", Font.BOLD, 12));
         percussionButton.setBounds(70, 110, 360, 25);
         add(percussionButton);
@@ -33,8 +33,8 @@ public class CatalogMenu extends Container {
         add(textArea);
 
         JLabel label = new JLabel("Enter the number of the item you want to buy");
-        label.setFont(new Font("Courier new", Font.PLAIN, 14));
-        label.setBounds(70, 320, 270, 25);
+        label.setFont(new Font("Courier new", Font.PLAIN, 10));
+        label.setBounds(50, 320, 300 , 25);
         add(label);
 
         JTextField numberField = new JTextField();
